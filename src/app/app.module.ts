@@ -9,12 +9,21 @@ import { AppLayoutComponent } from './_layout/app-layout/app-layout.component';
 import { SiteSidebarComponent } from './_layout/site-sidebar/site-sidebar.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { SiteHeaderComponent } from './_layout/site-header/site-header.component';
+import { UsersComponent } from './users/users.component';
+import { InventoryItemsComponent } from './inventory-items/inventory-items.component';
+import { ClientsComponent } from './clients/clients.component';
+import { ProjectsComponent } from './projects/projects.component';
+import { StylesComponent } from './styles/styles.component';
 const appRoutes:Routes=[
   {
     path: '',
         component: AppLayoutComponent, 
         children: [
-          { path: 'dashboard', component: DashboardComponent }
+          { path: 'dashboard', component: DashboardComponent },
+          { path: 'users', component: UsersComponent},
+          { path: 'clients', component: ClientsComponent},
+          { path: 'projects', component: ProjectsComponent},
+          { path: 'styles', component: StylesComponent},
         ]
   },
   {
@@ -29,7 +38,12 @@ const appRoutes:Routes=[
     AppLayoutComponent,
     SiteSidebarComponent,
     DashboardComponent,
-    SiteHeaderComponent
+    SiteHeaderComponent,
+    UsersComponent,
+    InventoryItemsComponent,
+    ClientsComponent,
+    ProjectsComponent,
+    StylesComponent
   ],
   imports: [
     BrowserModule,
