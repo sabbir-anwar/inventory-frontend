@@ -25,8 +25,9 @@ export class LoginComponent implements OnInit {
       console.log(data);
       let d:any=data;
       localStorage.setItem("token",d.accessToken);
-      this.router.navigate(["/dashboard"]);
       this.message=""
+      this.router.navigate(["dashboard"]);
+      
     },(err)=>{
        console.log(err);
        this.message="Username or password error";
