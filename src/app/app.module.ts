@@ -5,16 +5,31 @@ import{RouterModule, Routes} from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
+import { AppLayoutComponent } from './_layout/app-layout/app-layout.component';
+import { SiteSidebarComponent } from './_layout/site-sidebar/site-sidebar.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { SiteHeaderComponent } from './_layout/site-header/site-header.component';
 const appRoutes:Routes=[
   {
-    path:'',
+    path: '',
+        component: AppLayoutComponent, 
+        children: [
+          { path: 'dashboard', component: DashboardComponent }
+        ]
+  },
+  {
+    path:'login',
     component: LoginComponent
   }
 ];
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent
+    LoginComponent,
+    AppLayoutComponent,
+    SiteSidebarComponent,
+    DashboardComponent,
+    SiteHeaderComponent
   ],
   imports: [
     BrowserModule,
