@@ -8,10 +8,30 @@ import { Component, OnInit } from '@angular/core';
 export class SiteSidebarComponent implements OnInit {
   title='Payroll';
   menuItems=[
-     {
-       name:'Dashboard',
-       link:'/dashboard'
-     }
+    {
+      name:'Dashboard',
+      link:'/dashboard'
+    },
+    {
+      name:'Inventory Items',
+      link:'/inventoryitems'
+    },
+    {
+      name: 'Client',
+      link: '/clients'
+    },
+    {
+      name: 'Project',
+      link: '/projects'
+    },
+    {
+      name: 'Style',
+      link: '/styles'
+    },
+    {
+      name: 'Unit',
+      link: '/units'
+    }
 ]
   constructor() { }
 
