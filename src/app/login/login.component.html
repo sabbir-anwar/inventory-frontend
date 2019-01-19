@@ -1,21 +1,16 @@
 <div class="loginwrap">
-  <form class="loginform">
+  <div class="loginform">
     <h3 class="align">
             Account Login
           </h3>
     <div class="container">
-      <input type="text" placeholder="Username" name="uname" required>
-      <input type="password" placeholder="Password" name="psw" required>
-  
+      <p style="color:red"><i>{{message}}</i></p> 
+      <input type="text" placeholder="Username" [(ngModel)]="user.username" name="user.username" >
+      <input type="password" placeholder="Password" [(ngModel)]="user.password" name="user.password" >
     </div>
-  
     <div class="container" style="background-color:#f1f1f1">
-      <button type="submit" class="cancelbtn">SIGN UP</button>
-      <span class="psw">Forgot <a href="#">password?</a></span>
-      <label >
-        <input type="checkbox" checked="checked" name="remember"> Remember me
-      </label>
-    </div>
+      <button type="submit" class="cancelbtn" (click)="submit()">Signin</button>
+    </div>   
   
-  </form>
+
 </div>
