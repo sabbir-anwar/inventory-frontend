@@ -14,6 +14,9 @@ import { InventoryItemsComponent } from './inventory-items/inventory-items.compo
 import { ClientsComponent } from './clients/clients.component';
 import { ProjectsComponent } from './projects/projects.component';
 import { StylesComponent } from './styles/styles.component';
+import { CategoriesComponent } from './categories/categories.component';
+import { CategoriesDetailComponent } from './categories/categories-detail/categories-detail.component';
+import { CategoriesFormComponent } from './categories/categories-form/categories-form.component';
 const appRoutes:Routes=[
   {
     path: '',
@@ -24,6 +27,7 @@ const appRoutes:Routes=[
           { path: 'clients', component: ClientsComponent},
           { path: 'projects', component: ProjectsComponent},
           { path: 'styles', component: StylesComponent},
+          { path: 'categories', component: CategoriesComponent}
         ]
   },
   {
@@ -43,7 +47,10 @@ const appRoutes:Routes=[
     InventoryItemsComponent,
     ClientsComponent,
     ProjectsComponent,
-    StylesComponent
+    StylesComponent,
+    CategoriesComponent,
+    CategoriesDetailComponent,
+    CategoriesFormComponent
   ],
   imports: [
     BrowserModule,

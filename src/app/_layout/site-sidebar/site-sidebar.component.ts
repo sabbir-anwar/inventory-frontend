@@ -31,6 +31,10 @@ export class SiteSidebarComponent implements OnInit {
     {
       name: 'Unit',
       link: '/units'
+    },
+    {
+      name: 'Category',
+      link: '/categories'
     }
 ]
   constructor() { }
