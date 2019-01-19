@@ -21,6 +21,7 @@ import { CategoriesComponent } from './categories/categories.component';
 import { CategoriesDetailComponent } from './categories/categories-detail/categories-detail.component';
 import { CategoriesFormComponent } from './categories/categories-form/categories-form.component';
 import { RootComponent } from './root/root.component';
+import { UnitsComponent } from './units/units.component';
 const appRoutes:Routes=[
   {
     path: '',
@@ -32,7 +33,12 @@ const appRoutes:Routes=[
           { path: 'projects', component: ProjectsComponent},
           { path: 'styles', component: StylesComponent},
           { path: 'categories', component: CategoriesComponent},
+
+      
+          { path: 'units', component: UnitsComponent},
+
           { path: 'items', component: InventoryItemsComponent},
+
           { path: '', component: RootComponent}
         ]
   },
@@ -57,7 +63,8 @@ const appRoutes:Routes=[
     CategoriesComponent,
     CategoriesDetailComponent,
     CategoriesFormComponent,
-    RootComponent
+    RootComponent,
+    UnitsComponent
   ],
   imports: [
     BrowserModule,
