@@ -1,33 +1,28 @@
 <div class="container-fluid main-content">
   <div class="row">
     <div class="col-md-12">
-          <h2 class="title-1 m-b-25">Category</h2>
+          <h2 class="title-1 m-b-25" style="text-align: center;">Category</h2>
+          <form class="form-header m-b-20" action="" method="POST">
+              <input class="au-input" type="text" [(ngModel)]="category.name" name="category.name" placeholder="Category Name" />
+              <button class="btn btn-success m-l-5" type="submit" (click)="submit()"><i class="fas fa-plus m-r-5">Add Category</i></button>
+          </form>
           <div class="table-responsive table--no-card m-b-40">
               <table class="table table-borderless table-striped table-common">
                   <thead>
                       <tr>
-                          <th>#</th>
-                          <th>Category</th>
-                  
+                        <th>#</th>
+                        <th>Category</th>
                       </tr>
                   </thead>
                   <tbody>
                       <tr *ngFor="let category of categories; index as i">
                           <td scope="row">{{i+1}}</td>
                           <td>{{category.name}}</td>
-                        
                       </tr>
                   </tbody>
               </table>
           </div>
     </div>
   </div>
-  <div class="container">
-    <div class="form-group">
-    <label for="exampleInputEmail1">Category name</label>
-       <input type="text"  class="form-control" placeholder="Username" [(ngModel)]="category.name" name="category.name" >
-     <button type="submit" class="btn btn-danger" (click)="submit()">Add </button>
-  </div>
-</div>
 </div>
 

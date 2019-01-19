@@ -11,6 +11,10 @@ body{
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
+.main-content {
+    padding-top: 95px;
+    min-height: 100vh;
+}
 h1,
 h2,
 h3,
@@ -378,4 +382,19 @@ a {
     color: #808080;
     padding: 12px 40px;
     white-space: nowrap;
+}
+.au-input {
+    line-height: 39px;
+    border: 1px solid #e5e5e5;
+    font-size: 14px;
+    color: #666;
+    padding: 0 35px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 0.25rem;
+    -webkit-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+    min-width: 350px;
 }

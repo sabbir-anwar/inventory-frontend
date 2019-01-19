@@ -1,0 +1,27 @@
+<div class="container-fluid main-content">
+    <div class="row">
+      <div class="col-md-12">
+            <h2 class="title-1 m-b-25" style="text-align: center;">Units</h2>
+            <div class="table-responsive table--no-card m-b-40">
+                <table class="table table-borderless table-striped table-common">
+                    <thead>
+                        <tr>
+                          <th>#</th>
+                          <th>Unit Name</th>
+                          <th>Symbol</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                      <tr *ngFor="let unit of units; index as i" (click)="seeDetailView(unit)">
+                        <th scope="row">{{i+1}}</th>
+                        <td>{{unit.name}}</td>
+                        <td>{{unit.symbol}}</td>
+                      </tr>
+                    </tbody>
+                </table>
+            </div>
+      </div>
+    </div>
+  </div>
+  
+  
