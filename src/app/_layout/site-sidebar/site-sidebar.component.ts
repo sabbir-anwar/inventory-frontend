@@ -14,7 +14,7 @@ export class SiteSidebarComponent implements OnInit {
     },
     {
       name:'Inventory Items',
-      link:'/inventoryitems'
+      link:'/items'
     },
     {
       name: 'Client',

@@ -32,6 +32,7 @@ const appRoutes:Routes=[
           { path: 'projects', component: ProjectsComponent},
           { path: 'styles', component: StylesComponent},
           { path: 'categories', component: CategoriesComponent},
+          { path: 'items', component: InventoryItemsComponent},
           { path: '', component: RootComponent}
         ]
   },
