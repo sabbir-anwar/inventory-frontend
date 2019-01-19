@@ -33,8 +33,12 @@ const appRoutes:Routes=[
           { path: 'projects', component: ProjectsComponent},
           { path: 'styles', component: StylesComponent},
           { path: 'categories', component: CategoriesComponent},
-          { path: 'inventoryitems', component: InventoryItemsComponent},
+
+      
           { path: 'units', component: UnitsComponent},
+
+          { path: 'items', component: InventoryItemsComponent},
+
           { path: '', component: RootComponent}
         ]
   },
