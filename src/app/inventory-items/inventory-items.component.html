@@ -19,6 +19,7 @@
                           <td>{{item.name}}</td>
                           <td>{{item.color_code}}</td>
 
+                          <td *ngIf="!item.category">not available</td>
                           <td *ngIf="item.category">{{item.category.name}}</td>
                         
                       </tr>
