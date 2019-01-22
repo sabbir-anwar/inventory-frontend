@@ -1,5 +1,8 @@
 <div class="container-fluid main-content">
   <div class="row">
+    <div class = "col-md-3"> 
+          <button class="btn btn-primary right-float" (click)="addNew()">Add Inventory Item</button>
+    </div>
     <div class="col-md-12">
           <h2 class="title-1 m-b-25">Inventories</h2>
           <div class="table-responsive table--no-card m-b-40">
@@ -30,3 +33,7 @@
   </div>
 
 </div>
+
+<div [@popOverState]="stateName">  
+        <app-item-form></app-item-form>
+  </div>
