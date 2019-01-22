@@ -22,6 +22,8 @@ import { CategoriesDetailComponent } from './categories/categories-detail/catego
 import { CategoriesFormComponent } from './categories/categories-form/categories-form.component';
 import { RootComponent } from './root/root.component';
 import { UnitsComponent } from './units/units.component';
+import { ItemFormComponent } from './inventory-items/item-form/item-form.component';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 const appRoutes:Routes=[
   {
     path: '',
@@ -64,14 +66,16 @@ const appRoutes:Routes=[
     CategoriesDetailComponent,
     CategoriesFormComponent,
     RootComponent,
-    UnitsComponent
+    UnitsComponent,
+    ItemFormComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     RouterModule.forRoot(appRoutes),
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
