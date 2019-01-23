@@ -35,5 +35,5 @@
 </div>
 
 <div [@popOverState]="stateName">  
-        <app-item-form></app-item-form>
+        <app-item-form (messageEvent)="receiveMessage($event)"></app-item-form>
   </div>

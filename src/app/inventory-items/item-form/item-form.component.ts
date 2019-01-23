@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,Input,Output,EventEmitter} from '@angular/core';
 import {HttpClient,HttpHeaders} from '@angular/common/http';
 import {getHost} from '../../config';
 import {Router} from '@angular/router';
@@ -9,26 +9,32 @@ import {Router} from '@angular/router';
   styleUrls: ['./item-form.component.css']
 })
 export class ItemFormComponent implements OnInit {
+   @Input() payhead:any;
+   @Output() messageEvent=new EventEmitter<boolean>();
   categories=null;
-  category={
+  item={
     name:"",
-    image:"",
-    others:"",
-    color_code:""
+    description:"",
+    color_code:"",
+   category_id:""
 
   }
 
  constructor(private http:HttpClient,private router:Router) { 
   
-  
+
    let token=localStorage.getItem("token");
    let header= new HttpHeaders().append("Authorization","Bearer "+token);
    this.http.get(getHost()+"/hello",{headers:header}).subscribe((res)=>{
       console.log(res);
      // this.router.navigate(["dashboard"]);
 
+    
+
+
    },(err)=>{
-      console.log(err.status);
+     
+      
       if(err.status==401)
       {
         this.router.navigate(["login"]); 
@@ -45,23 +51,34 @@ export class ItemFormComponent implements OnInit {
 
   }
   submit(){
+    
+    console.log(this.item);  
     let token=localStorage.getItem("token");
-   let headers= new HttpHeaders().append("Authorization","Bearer "+token);
-    this.http.post(getHost()+"/api/items",this.category,{headers}).subscribe((res)=>{
+    let headers= new HttpHeaders().append("Authorization","Bearer "+token);
+    this.http.post(getHost()+"/api/items",this.item,{headers}).subscribe((res)=>{
        this.init();
     },(error)=>{
       if(error.status ==201)
       {
          this.init();  
       }
-
     });
+  }
+  
+   sendMessageToParent(message:boolean)  {
+    this.messageEvent.emit(message);
+  }
+  cancel()
+  {
+    this.sendMessageToParent(false);
   }
   init(){
    let token=localStorage.getItem("token");
    let headers= new HttpHeaders().append("Authorization","Bearer "+token);
-   this.http.get(getHost()+"/api/items",{headers}).subscribe((res)=>{
-      this.categories=res;  
+   this.http.get(getHost()+"/api/categories",{headers}).subscribe((res)=>{
+      this.categories=res;
+      console.log(this.categories);  
+       this.sendMessageToParent(true);
       
    },(err)=>{
     console.log(err);  
