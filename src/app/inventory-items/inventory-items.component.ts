@@ -64,6 +64,11 @@ export class InventoryItemsComponent implements OnInit {
   {
     this.show=true;
   }
+  receiveMessage($event)
+  {
+      this.show=false;
+      this.init();
+  }
   // receiveMessage($event)
   // {
   //     this.show=false;
