@@ -1,7 +1,13 @@
 <div class="container-fluid main-content">
     <div class="row">
+        <div class="col-md-4">
+            <h2 class="title-1 m-b-25">Units</h2>
+        </div>
+        <div class="col-md-4"></div>
+        <div class = "col-md-4"> 
+              <button class="btn btn-primary right-float" (click)="addNew()"><i class="fas fa-plus m-r-5">Add Unit</i></button>
+        </div>
       <div class="col-md-12">
-            <h2 class="title-1 m-b-25" style="text-align: center;">Units</h2>
             <div class="table-responsive table--no-card m-b-40">
                 <table class="table table-borderless table-striped table-common">
                     <thead>
@@ -23,5 +29,9 @@
       </div>
     </div>
   </div>
+
+<div [@popOverState]="stateName">  
+    <app-unit-form (messageEvent)="receiveMessage($event)"></app-unit-form>
+</div>
   
   

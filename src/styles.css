@@ -69,6 +69,10 @@ a {
     display: inline-block;
     text-decoration: none;
 }
+/* Float */
+.right-float{
+    float: right;
+}
 /*Padding, margin*/
 .p-b-0 {
     padding-bottom: 0px;

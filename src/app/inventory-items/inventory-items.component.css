@@ -2,3 +2,6 @@
     padding-top: 116px;
     min-height: 100vh;
 }
+.right-float i::before{
+    margin-right: 5px;
+}
