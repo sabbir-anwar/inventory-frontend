@@ -1,10 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import{RouterModule, Routes} from '@angular/router';
-
 import { FormsModule } from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
@@ -24,6 +22,7 @@ import { RootComponent } from './root/root.component';
 import { UnitsComponent } from './units/units.component';
 import { ItemFormComponent } from './inventory-items/item-form/item-form.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { UnitFormComponent } from './units/unit-form/unit-form.component';
 const appRoutes:Routes=[
   {
     path: '',
@@ -35,12 +34,8 @@ const appRoutes:Routes=[
           { path: 'projects', component: ProjectsComponent},
           { path: 'styles', component: StylesComponent},
           { path: 'categories', component: CategoriesComponent},
-
-      
           { path: 'units', component: UnitsComponent},
-
           { path: 'items', component: InventoryItemsComponent},
-
           { path: '', component: RootComponent}
         ]
   },
@@ -67,7 +62,8 @@ const appRoutes:Routes=[
     CategoriesFormComponent,
     RootComponent,
     UnitsComponent,
-    ItemFormComponent
+    ItemFormComponent,
+    UnitFormComponent
   ],
   imports: [
     BrowserModule,
