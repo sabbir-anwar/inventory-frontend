@@ -3,6 +3,7 @@ import {HttpClient,HttpHeaders} from '@angular/common/http';
 import {getHost} from '../config';
 import {Router} from '@angular/router';
 import {trigger,state,style,animate,transition} from '@angular/animations';
+import { formArrayNameProvider } from '@angular/forms/src/directives/reactive_directives/form_group_name';
 
 @Component({
   selector: 'app-units',
@@ -60,8 +61,25 @@ export class UnitsComponent implements OnInit {
   {
     this.show=true;
   }
+  form = null;
+  TriggerEvent($event) {
+    if(this.form!=null) {
+      this.form.lock = false;
+      console.log("Check trigger");
+    }
+    console.log("triggered here");
+    // this.form.lock = false;
+  }
   receiveMessage($event)
   {
+    if($event===true || $event===false) {
+    
+    }
+    else {
+      // $event.lock = false;
+      this.form = $event;
+    }
+    console.log($event+"Prob here");
       this.show=false;
       this.init();
   }

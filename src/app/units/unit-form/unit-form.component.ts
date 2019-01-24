@@ -36,20 +36,36 @@ export class UnitFormComponent implements OnInit {
   ngOnInit() {
     this.init();
   }
+  lock = false;
   submit(){
-    console.log(this.item);  
-    let token=localStorage.getItem("token");
-    let headers= new HttpHeaders().append("Authorization","Bearer "+token);
-    this.http.post(getHost()+"/api/units",this.item,{headers}).subscribe((res)=>{
-       this.init();
-    },(error)=>{
-      if(error.status ==201)
-      {
-         this.init();  
-      }
-    });
+    this.lock = true;
+    if(this.item.name.length == 0||this.item.symbol.length == 0|| this.item.description.length==0) {
+      return;
+    }
+    
+      console.log(this.item);  
+      let token=localStorage.getItem("token");
+      let headers= new HttpHeaders().append("Authorization","Bearer "+token);
+      
+      this.http.post(getHost()+"/api/units",this.item,{headers}).subscribe((res)=>{
+        this.sendMessageToParent(this);
+        this.init();      
+        // this.lock = false;
+        
+     },(error)=>{
+       if(error.status ==201)
+       {
+          this.sendMessageToParent(this);
+          this.init();  
+          // this.lock = false;
+         
+       }
+     });
+    
+
+
   }
-  sendMessageToParent(message:boolean)  {
+  sendMessageToParent(message:any)  {
     this.messageEvent.emit(message);
   }
   cancel()
@@ -58,12 +74,19 @@ export class UnitFormComponent implements OnInit {
   }
 
   init(){
+    this.item={
+      name:"",
+      symbol:"",
+      description:""
+    }
+    
     let token=localStorage.getItem("token");
+    
     let headers= new HttpHeaders().append("Authorization","Bearer "+token);
     this.http.get(getHost()+"/api/units",{headers}).subscribe((res)=>{
       this.units=res;
       console.log(this.item);  
-       this.sendMessageToParent(true);
+      //  this.sendMessageToParent(true);
       
    },(err)=>{
     console.log(err);  
