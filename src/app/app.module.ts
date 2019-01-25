@@ -23,6 +23,7 @@ import { UnitsComponent } from './units/units.component';
 import { ItemFormComponent } from './inventory-items/item-form/item-form.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { UnitFormComponent } from './units/unit-form/unit-form.component';
+import { StylesFormComponent } from './styles/styles-form/styles-form.component';
 const appRoutes:Routes=[
   {
     path: '',
@@ -63,7 +64,8 @@ const appRoutes:Routes=[
     RootComponent,
     UnitsComponent,
     ItemFormComponent,
-    UnitFormComponent
+    UnitFormComponent,
+    StylesFormComponent
   ],
   imports: [
     BrowserModule,

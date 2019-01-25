@@ -31,3 +31,9 @@
       </div>
     </div>
   </div>
+
+  
+<div [@popOverState]="stateName" (@popOverState.done) = "TriggerEvent($event)">  
+        
+    <app-styles-form (messageEvent)="receiveMessage($event)"></app-styles-form>
+</div>
