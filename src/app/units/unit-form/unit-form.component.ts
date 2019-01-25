@@ -56,9 +56,7 @@ export class UnitFormComponent implements OnInit {
        if(error.status ==201)
        {
           this.sendMessageToParent(this);
-          this.init();  
-          // this.lock = false;
-         
+          this.init();           
        }
      });
     

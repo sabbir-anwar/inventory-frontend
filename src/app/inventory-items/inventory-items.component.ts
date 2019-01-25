@@ -64,8 +64,26 @@ export class InventoryItemsComponent implements OnInit {
   {
     this.show=true;
   }
+  form = null;
+  TriggerEvent($event) {
+    if(this.form!=null) {
+      this.form.lock = false;
+      console.log("Check trigger");
+    }
+    console.log("triggered here");
+    // this.form.lock = false;
+  }
+
   receiveMessage($event)
   {
+    if($event===true || $event===false) {
+    
+    }
+    else {
+      // $event.lock = false;
+      this.form = $event;
+    }
+    console.log($event+"Prob here");
       this.show=false;
       this.init();
   }
