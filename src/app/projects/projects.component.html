@@ -5,7 +5,7 @@
         </div>
         <div class="col-md-4"></div>
         <div class = "col-md-4"> 
-              <button class="btn btn-primary right-float" (click)="addNew()"><i class="fas fa-plus m-r-5">Add Project</i></button>
+              <button class="btn btn-primary right-float" (click)="addNew()"><i class="fas fa-plus"></i>Add Project</button>
         </div>
       <div class="col-md-12">
             <div class="table-responsive table--no-card m-b-40">
@@ -19,7 +19,7 @@
                     </thead>
                     <tbody>
                       <tr *ngFor="let project of projects; index as i" (click)="seeDetailView(unit)">
-                        <th scope="row">{{i+1}}</th>
+                        <td scope="row">{{i+1}}</td>
                         <td>{{project.name}}</td>
                         <td>{{project.client_id}}</td>
                       </tr>
