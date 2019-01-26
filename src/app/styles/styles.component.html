@@ -19,10 +19,10 @@
                         </tr>
                     </thead>
                     <tbody>
-                      <tr *ngFor="let style of styles; index as i" (click)="seeDetailView(unit)">
+                      <tr *ngFor="let style of styles; index as i" >
                         <th scope="row">{{i+1}}</th>
                         <td>{{style.name}}</td>
-                        <td>{{style.project_id.name}}</td>
+                        <td>{{style.project.name}}</td>
                         <td>{{style.description}}</td>
                       </tr>
                     </tbody>
