@@ -1,6 +1,6 @@
 .loginwrap{
     margin: auto;
-    margin-top: 50px;
+    margin-top: 12%;
     padding: 10px;
     width: 450px;
     background: rgb(245, 245, 245);
@@ -19,7 +19,6 @@
     height: 55px;
     padding: 0 25px 0 25px;
     width: 100%;
-    /* padding: 12px 20px; */
     margin: 8px 0;
     display: inline-block;
     border: 1px solid rgb(245, 239, 239);
@@ -28,13 +27,14 @@
   
   /* Set a style for all buttons */
   button {
-    background-color: #4CAF50;
-    color: white;
-    padding: 14px 20px;
+    background-color: #4272d7;
+    color: #fff;
+    padding: 4px 0px;
     margin: 8px 0;
     border: none;
     cursor: pointer;
     width: 100%;
+    font-size: 22px;
   }
   
   /* Add a hover effect for buttons */
@@ -45,9 +45,7 @@
   /* Extra style for the cancel button (red) */
   .align{
       text-align: center;
-      font-style: oblique;
       font-size: 40px;
-      color: #555755ad;
   }
   
   /* Add padding to containers */

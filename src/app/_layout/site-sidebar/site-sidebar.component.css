@@ -15,9 +15,11 @@
     color: #555;
     font-size: 16px;
     padding: 12px 0;
+    width: 100%;
+    height: 100%;
 }
 .menu-sidebar li a:hover{
-    color: #4272d7;
+    color: #fff;
 }
 .menu-sidebar .logo{
     background: #f5f5f5;
@@ -40,3 +42,13 @@
     position: relative;
     z-index: 3;
 }
+.navbar-sidebar ul{
+    padding-left: 0;
+}
+.navbar-sidebar ul li{
+    padding-left: 2rem;
+}
+.navbar-sidebar ul li:hover{
+    background: #4272d7;
+}
+

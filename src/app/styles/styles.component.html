@@ -5,7 +5,7 @@
         </div>
         <div class="col-md-4"></div>
         <div class = "col-md-4"> 
-              <button class="btn btn-primary right-float" (click)="addNew()"><i class="fas fa-plus m-r-5">Add Style</i></button>
+              <button class="btn btn-primary right-float" (click)="addNew()"><i class="fas fa-plus"></i>Add Style</button>
         </div>
       <div class="col-md-12">
             <div class="table-responsive table--no-card m-b-40">
@@ -22,7 +22,7 @@
                       <tr *ngFor="let style of styles; index as i" (click)="seeDetailView(unit)">
                         <th scope="row">{{i+1}}</th>
                         <td>{{style.name}}</td>
-                        <td>{{style.project_id.name}}</td>
+                        <td>{{style.project_id}}</td>
                         <td>{{style.description}}</td>
                       </tr>
                     </tbody>
