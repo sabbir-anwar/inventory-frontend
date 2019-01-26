@@ -15,7 +15,6 @@
                           <th>#</th>
                           <th>Project Name</th>
                           <th>Client Name</th>
-                          <th>Style Number</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -23,7 +22,6 @@
                         <th scope="row">{{i+1}}</th>
                         <td>{{project.name}}</td>
                         <td>{{client.name}}</td>
-                        <td>{{project.style_num}}</td>
                       </tr>
                     </tbody>
                 </table>
@@ -31,3 +29,6 @@
       </div>
     </div>
   </div>
+<div [@popOverState]="stateName" (@popOverState.done) = "TriggerEvent($event)">     
+    <app-project-form  (messageEvent)="receiveMessage($event)"></app-project-form>
+</div>
