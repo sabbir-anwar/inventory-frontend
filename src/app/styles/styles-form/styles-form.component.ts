@@ -12,10 +12,11 @@ export class StylesFormComponent implements OnInit {
 
   @Input() payhead:any;
   @Output() messageEvent=new EventEmitter<boolean>();
-  units=null;
+  projects=null;
   item={
     name:"",
-    description:""
+    description:"",
+    project_id:""
   }
   constructor(private http:HttpClient,private router:Router) {
     let token=localStorage.getItem("token");
@@ -38,7 +39,7 @@ export class StylesFormComponent implements OnInit {
   lock = false;
   submit(){
     this.lock = true;
-    if(this.item.name.length == 0||this.item.description.length==0) {
+    if(this.item.name.length == 0||this.item.description.length==0||this.item.project_id.length==0) {
       return;
     }
     
@@ -46,7 +47,7 @@ export class StylesFormComponent implements OnInit {
       let token=localStorage.getItem("token");
       let headers= new HttpHeaders().append("Authorization","Bearer "+token);
       
-      this.http.post(getHost()+"/api/units",this.item,{headers}).subscribe((res)=>{
+      this.http.post(getHost()+"/api/styles",this.item,{headers}).subscribe((res)=>{
         this.sendMessageToParent(this);
         this.init();      
         // this.lock = false;
@@ -73,14 +74,15 @@ export class StylesFormComponent implements OnInit {
   init(){
     this.item={
       name:"",
-      description:""
+      description:"",
+      project_id:""
     }
     
     let token=localStorage.getItem("token");
     
     let headers= new HttpHeaders().append("Authorization","Bearer "+token);
-    this.http.get(getHost()+"/api/units",{headers}).subscribe((res)=>{
-      this.units=res;
+    this.http.get(getHost()+"/api/projects",{headers}).subscribe((res)=>{
+      this.projects=res;
       console.log(this.item);  
       //  this.sendMessageToParent(true);
       

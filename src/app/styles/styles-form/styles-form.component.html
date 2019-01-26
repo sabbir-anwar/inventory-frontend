@@ -2,10 +2,10 @@
   <div class="modal-contain">
      <div class="container">
     <div class="card">
-        <div class="card-header text-center">Add Styles</div>
+        <div class="card-header text-center">Add Style</div>
         <div class="card-body">
             <div class="card-title">
-                <h3 class="text-center title-2">STYLES</h3>
+                <h3 class="text-center title-2">Style</h3>
             </div>
             <hr>
             <form action="" method="post" novalidate="novalidate">
@@ -13,7 +13,16 @@
                     <label for="cc-payment" class="control-label mb-1">Name</label>
                     <input class="form-control" type="text" [(ngModel)]="item.name" name="item.name">
                 </div>
-
+                <div class="row form-group">
+                    <div class="col col-md-3">
+                    <label for="categories" class=" form-control-label">Select Project</label>
+                    </div>
+                    <div class="col-12 col-md-9" >
+                    <select [(ngModel)]="item.project_id" name="item.project_id" class="form-control" *ngIf="projects" >
+                        <option *ngFor="let project of projects" value={{project.id}}>{{project.name}}</option>
+                    </select>
+                    </div>
+                </div>
                 <div class="row form-group">
                     <div class="col col-md-3">
                     <label for="textarea-input" class=" form-control-label">Description</label>
