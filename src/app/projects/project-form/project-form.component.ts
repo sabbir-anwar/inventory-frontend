@@ -12,11 +12,11 @@ export class ProjectFormComponent implements OnInit {
 
   @Input() payhead:any;
   @Output() messageEvent=new EventEmitter<boolean>();
-  projects=null;
+  clients=null;
   item={
     name:"",
     description:"",
-    client:""
+    client_id:""
   }
   constructor(private http:HttpClient,private router:Router) {
     let token=localStorage.getItem("token");
@@ -39,7 +39,7 @@ export class ProjectFormComponent implements OnInit {
   lock = false;
   submit(){
     this.lock = true;
-    if(this.item.name.length == 0||this.item.client.length == 0||this.item.description.length == 0) {
+    if(this.item.name.length == 0||this.item.client_id.length == 0||this.item.description.length == 0) {
       return;
     }
     
@@ -72,14 +72,14 @@ export class ProjectFormComponent implements OnInit {
     this.item={
       name:"",
       description:"",
-      client:""
+      client_id:""
     }
     
     let token=localStorage.getItem("token");
     
     let headers= new HttpHeaders().append("Authorization","Bearer "+token);
-    this.http.get(getHost()+"/api/projects",{headers}).subscribe((res)=>{
-      this.projects=res;
+    this.http.get(getHost()+"/api/clients",{headers}).subscribe((res)=>{
+      this.clients=res;
       console.log(this.item);  
       //  this.sendMessageToParent(true);
       
