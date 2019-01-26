@@ -14,15 +14,15 @@
                         <tr>
                           <th>#</th>
                           <th>Style Name</th>
-                          <th>Client Name</th>
+                          <th>Project Name</th>
                           <th>Description</th>
                         </tr>
                     </thead>
                     <tbody>
-                      <tr *ngFor="let unit of units; index as i" (click)="seeDetailView(unit)">
+                      <tr *ngFor="let style of styles; index as i" (click)="seeDetailView(unit)">
                         <th scope="row">{{i+1}}</th>
                         <td>{{style.name}}</td>
-                        <td>{{client.name}}</td>
+                        <td>{{style.project_id.name}}</td>
                         <td>{{style.description}}</td>
                       </tr>
                     </tbody>

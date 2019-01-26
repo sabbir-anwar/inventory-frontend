@@ -15,11 +15,11 @@
                 </div>
                 <div class="row form-group">
                   <div class="col col-md-3">
-                  <label for="categories" class=" form-control-label">Select Category</label>
+                  <label for="categories" class=" form-control-label">Assigned To</label>
                   </div>
                   <div class="col-12 col-md-9" >
-                  <select [(ngModel)]="item.category_id" name="item.category_id" class="form-control" *ngIf="categories" >
-                      <option *ngFor="let category of categories" value={{category.id}}>{{category.name}}</option>
+                  <select [(ngModel)]="item.assigned_to" name="item.assigned_to" class="form-control" *ngIf="users" >
+                      <option *ngFor="let user of users" value={{user.id}}>{{user.name}}</option>
                   </select>
                   </div>
                 </div>
