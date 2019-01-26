@@ -39,7 +39,7 @@ export class ProjectFormComponent implements OnInit {
   lock = false;
   submit(){
     this.lock = true;
-    if(this.item.name.length == 0||this.item.client_id.length == 0||this.item.description.length == 0) {
+    if(this.item.name.length == 0||this.item.description.length == 0||this.item.client_id.length == 0) {
       return;
     }
     

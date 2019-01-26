@@ -12,7 +12,7 @@ export class ClientFormComponent implements OnInit {
 
   @Input() payhead:any;
   @Output() messageEvent=new EventEmitter<boolean>();
-  clients=null;
+  users=null;
   item={
     name:"",
     description:"",
@@ -82,8 +82,8 @@ export class ClientFormComponent implements OnInit {
     let token=localStorage.getItem("token");
     
     let headers= new HttpHeaders().append("Authorization","Bearer "+token);
-    this.http.get(getHost()+"/api/clients",{headers}).subscribe((res)=>{
-      this.clients=res;
+    this.http.get(getHost()+"/api/users",{headers}).subscribe((res)=>{
+      this.users=res;
       console.log(this.item);  
       //  this.sendMessageToParent(true);
       
