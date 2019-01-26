@@ -69,7 +69,7 @@ const appRoutes:Routes=[
     ItemFormComponent,
     UnitFormComponent,
     ClientFormComponent,
-    ProjectFormComponent
+    ProjectFormComponent,
     StylesFormComponent
   ],
   imports: [
