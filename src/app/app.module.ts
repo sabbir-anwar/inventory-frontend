@@ -26,6 +26,7 @@ import { UnitFormComponent } from './units/unit-form/unit-form.component';
 import { StylesFormComponent } from './styles/styles-form/styles-form.component';
 import { ClientFormComponent } from './clients/client-form/client-form.component';
 import { ProjectFormComponent } from './projects/project-form/project-form.component';
+import { ProjectsDetailComponent } from './projects/projects-detail/projects-detail.component';
 
 const appRoutes:Routes=[
   {
@@ -40,7 +41,9 @@ const appRoutes:Routes=[
           { path: 'categories', component: CategoriesComponent},
           { path: 'units', component: UnitsComponent},
           { path: 'items', component: InventoryItemsComponent},
-          { path: '', component: RootComponent}
+          { path: '', component: RootComponent},
+          { path: 'projects/:id', component: ProjectsDetailComponent},
+
         ]
   },
   {
@@ -70,7 +73,8 @@ const appRoutes:Routes=[
     UnitFormComponent,
     ClientFormComponent,
     ProjectFormComponent,
-    StylesFormComponent
+    StylesFormComponent,
+    ProjectsDetailComponent
   ],
   imports: [
     BrowserModule,
