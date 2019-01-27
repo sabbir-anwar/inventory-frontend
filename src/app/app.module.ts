@@ -30,6 +30,10 @@ import { ProjectsDetailComponent } from './projects/projects-detail/projects-det
 import { LocationsComponent } from './locations/locations.component';
 import { LocationFormComponent } from './locations/location-form/location-form.component';
 import { componentFactoryName } from '@angular/compiler';
+import { StageComponent } from './stage/stage.component';
+import { StageFormComponent } from './stage/stage-form/stage-form.component';
+import { StoreComponent } from './store/store.component';
+import { StoreFormComponent } from './store/store-form/store-form.component';
 
 const appRoutes:Routes=[
   {
@@ -46,7 +50,9 @@ const appRoutes:Routes=[
           { path: 'items', component: InventoryItemsComponent},
           { path: '', component: RootComponent},
           { path: 'projects/:id', component: ProjectsDetailComponent},
-          { path: 'locations', component: LocationsComponent}
+          { path: 'locations', component: LocationsComponent},
+          { path: 'stage', component: StageComponent},
+          { path: 'store', component: StoreComponent}
         ]
   },
   {
@@ -79,7 +85,11 @@ const appRoutes:Routes=[
     StylesFormComponent,
     ProjectsDetailComponent,
     LocationsComponent,
-    LocationFormComponent
+    LocationFormComponent,
+    StageComponent,
+    StageFormComponent,
+    StoreComponent,
+    StoreFormComponent
   ],
   imports: [
     BrowserModule,
