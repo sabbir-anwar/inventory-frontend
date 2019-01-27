@@ -34,6 +34,9 @@ import { StageComponent } from './stage/stage.component';
 import { StageFormComponent } from './stage/stage-form/stage-form.component';
 import { StoreComponent } from './store/store.component';
 import { StoreFormComponent } from './store/store-form/store-form.component';
+import { BookingsComponent } from './bookings/bookings.component';
+import { BookingFormComponent } from './bookings/booking-form/booking-form.component';
+
 
 const appRoutes:Routes=[
   {
@@ -52,7 +55,8 @@ const appRoutes:Routes=[
           { path: 'projects/:id', component: ProjectsDetailComponent},
           { path: 'locations', component: LocationsComponent},
           { path: 'stage', component: StageComponent},
-          { path: 'store', component: StoreComponent}
+          { path: 'store', component: StoreComponent},
+          { path: 'bookings', component: BookingsComponent}
         ]
   },
   {
@@ -89,7 +93,9 @@ const appRoutes:Routes=[
     StageComponent,
     StageFormComponent,
     StoreComponent,
-    StoreFormComponent
+    StoreFormComponent,
+    BookingsComponent,
+    BookingFormComponent
   ],
   imports: [
     BrowserModule,

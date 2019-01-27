@@ -47,6 +47,10 @@ export class SiteSidebarComponent implements OnInit {
     {
       name: 'Store',
       link: '/store'
+    },
+    {
+      name:'Booking',
+      link: '/bookings'
     }
 
 ]
