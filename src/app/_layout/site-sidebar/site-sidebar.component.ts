@@ -39,6 +39,10 @@ export class SiteSidebarComponent implements OnInit {
     {
       name: 'Location',
       link: '/locations'
+    },
+    {
+      name:'Booking',
+      link: '/bookings'
     }
 ]
   constructor() { }
