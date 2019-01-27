@@ -23,7 +23,7 @@
                       <tr *ngFor="let client of clients; index as i" (click)="seeDetailView(unit)">
                         <td scope="row">{{i+1}}</td>
                         <td>{{client.name}}</td>
-                        <td>{{client.assigned_to}}</td>
+                        <td>{{client.assigned.name}}</td>
                         <td>{{client.contact}}</td>
                         <td>{{client.email}}</td>
                       </tr>

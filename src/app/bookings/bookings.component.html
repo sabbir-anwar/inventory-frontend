@@ -1,0 +1,43 @@
+<div class="container-fluid main-content">
+  <div class="row">
+      <div class="col-md-4">
+          <h2 class="title-1 m-b-25">bookings</h2>
+      </div>
+      <div class="col-md-4"></div>
+      <div class = "col-md-4"> 
+            <button class="btn btn-primary right-float" (click)="addNew()"><i class="fas fa-plus"></i>Add booking</button>
+      </div>
+    <div class="col-md-12">
+          <div class="table-responsive table--no-card m-b-40">
+              <table class="table table-borderless table-striped table-common">
+                  <thead>
+                      <tr>
+                        <th>#</th>
+                        <th>Quantity</th>
+                        <th>Unit</th>
+                        <th>Item</th>
+                        <th>Style</th>
+                        <th>PricePerUnit</th>
+                        <th>Status</th>
+                      </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let booking of bookings; index as i" (click)="seeDetailView(unit)">
+                      <td scope="row">{{i+1}}</td>
+                      <td>{{booking.quantity}}</td>
+                      <td>{{booking.unit.name}}</td>
+                      <td>{{booking.item.name}}</td>
+                      <td>{{booking.style.name}}</td>
+                      <td>{{booking.priceperunit}}</td>
+                      <td>{{booking.status}}</td>
+                    </tr>
+                  </tbody>
+              </table>
+          </div>
+    </div>
+  </div>
+</div>
+
+<div [@popOverState]="stateName" (@popOverState.done) = "TriggerEvent($event)">     
+  <app-booking-form  (messageEvent)="receiveMessage($event)"></app-booking-form>
+</div>
