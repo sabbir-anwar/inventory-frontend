@@ -55,6 +55,13 @@ export class ProjectsComponent implements OnInit {
   get stateName(){
     return this.show ? 'show' : 'hide'  
   }
+  seeDetailView(projects) {
+    let id=projects.id;
+    console.log("seedetailview"+projects);
+    console.log(projects);
+    this.router.navigate(["/projects",id]);
+ 
+  }
 
   addNew()
   {

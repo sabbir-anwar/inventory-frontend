@@ -18,8 +18,8 @@
                         </tr>
                     </thead>
                     <tbody>
-                      <tr *ngFor="let project of projects; index as i" (click)="seeDetailView(unit)">
-                        <td scope="row">{{i+1}}</td>
+                      <tr *ngFor="let project of projects; index as i" (click)="seeDetailView(project)">
+                        <th scope="row">{{i+1}}</th>
                         <td>{{project.name}}</td>
                         <td>{{project.client_id}}</td>
                       </tr>

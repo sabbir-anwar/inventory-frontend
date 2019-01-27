@@ -31,7 +31,7 @@ export class ProjectsDetailComponent implements OnInit {
   name:string;
   description:any;
   show:boolean;
-  
+  styles:any;
   constructor(private http:HttpClient,private route:ActivatedRoute, private router:Router) {
     this.show = false;
     let token=localStorage.getItem("token");
@@ -62,10 +62,13 @@ export class ProjectsDetailComponent implements OnInit {
   }
   loadData()
   {
+    console.log("Inside loadData"+this.url);
     let token=localStorage.getItem("token");
     let header= new HttpHeaders().append("Authorization","Bearer "+token);
     this.http.get(this.url,{headers:header}).subscribe((response)=>{
-     console.log(response);
+    console.log(response);
+    this.styles = response;
+     
     });
   }
   //receving message from child component
