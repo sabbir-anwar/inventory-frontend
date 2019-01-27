@@ -379,6 +379,9 @@ a {
     -moz-transition: all 0.3s ease;
     transition: all 0.3s ease;
 }
+.table{
+    margin-bottom: 0;
+}
 .table-responsive.table--no-card {
     -webkit-border-radius: 10px;
     -moz-border-radius: 10px;
