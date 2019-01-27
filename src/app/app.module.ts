@@ -27,6 +27,9 @@ import { StylesFormComponent } from './styles/styles-form/styles-form.component'
 import { ClientFormComponent } from './clients/client-form/client-form.component';
 import { ProjectFormComponent } from './projects/project-form/project-form.component';
 import { ProjectsDetailComponent } from './projects/projects-detail/projects-detail.component';
+import { LocationsComponent } from './locations/locations.component';
+import { LocationFormComponent } from './locations/location-form/location-form.component';
+import { componentFactoryName } from '@angular/compiler';
 
 const appRoutes:Routes=[
   {
@@ -43,7 +46,7 @@ const appRoutes:Routes=[
           { path: 'items', component: InventoryItemsComponent},
           { path: '', component: RootComponent},
           { path: 'projects/:id', component: ProjectsDetailComponent},
-
+          { path: 'locations', component: LocationsComponent}
         ]
   },
   {
@@ -74,7 +77,9 @@ const appRoutes:Routes=[
     ClientFormComponent,
     ProjectFormComponent,
     StylesFormComponent,
-    ProjectsDetailComponent
+    ProjectsDetailComponent,
+    LocationsComponent,
+    LocationFormComponent
   ],
   imports: [
     BrowserModule,
