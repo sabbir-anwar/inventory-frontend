@@ -12,11 +12,15 @@ export class StoreFormComponent implements OnInit {
 
   @Input() payhead:any;
   @Output() messageEvent=new EventEmitter<boolean>();
-  store=null;
+  stages=null;
+  locations=null;
+  inventoryitems=null;
+  units=null;
   item={
-    stage:"",
-    location:"",
-    unit:"",
+    stage_id:"",
+    location_id:"",
+    item_id:"",
+    unit_id:"",
     quantity:""
   }
   constructor(private http:HttpClient,private router:Router) {
@@ -38,35 +42,34 @@ export class StoreFormComponent implements OnInit {
     this.init();
   }
   lock = false;
-  submit(){
+  submit()
+  {
     this.lock = true;
-    if(this.item.stage.length == 0||this.item.location.length == 0|| this.item.unit.length==0|| this.item.quantity.length==0) {
+    if(this.item.stage_id.length == 0||this.item.location_id.length == 0|| this.item.item_id.length==0|| this.item.unit_id.length==0|| this.item.quantity.length==0) 
+    {
       return;
     }
     
-      console.log(this.item);  
-      let token=localStorage.getItem("token");
-      let headers= new HttpHeaders().append("Authorization","Bearer "+token);
+    console.log(this.item);  
+    let token=localStorage.getItem("token");
+    let headers= new HttpHeaders().append("Authorization","Bearer "+token);
       
-      this.http.post(getHost()+"/api/store",this.item,{headers}).subscribe((res)=>{
-        this.sendMessageToParent(this);
-        this.init();      
-        // this.lock = false;
-        
-     },(error)=>{
+    this.http.post(getHost()+"/api/stores",this.item,{headers}).subscribe((res)=>{
+      this.sendMessageToParent(this);
+      this.init();
+    },(error)=>{
        if(error.status ==201)
        {
           this.sendMessageToParent(this);
           this.init();           
        }
-     });
-    
-
-
+    });
   }
+
   sendMessageToParent(message:any)  {
     this.messageEvent.emit(message);
   }
+  
   cancel()
   {
     this.sendMessageToParent(false);
@@ -74,22 +77,43 @@ export class StoreFormComponent implements OnInit {
 
   init(){
     this.item={
-      stage:"",
-      location:"",
-      unit:"",
+      stage_id:"",
+      location_id:"",
+      item_id:"",
+      unit_id:"",
       quantity:""
     }
     
     let token=localStorage.getItem("token");
-    
     let headers= new HttpHeaders().append("Authorization","Bearer "+token);
-    this.http.get(getHost()+"/api/store",{headers}).subscribe((res)=>{
-      this.store=res;
-      console.log(this.item);  
-      //  this.sendMessageToParent(true);
-      
-   },(err)=>{
-    console.log(err);  
-   })
+    // fetching stage objects
+    this.http.get(getHost()+"/api/stages",{headers}).subscribe((res)=>{
+      this.stages=res;
+      console.log(this.item);
+    },(err)=>{
+      console.log(err);  
+    })
+    // fetching location object
+    this.http.get(getHost()+"/api/locations",{headers}).subscribe((res)=>{
+      this.locations=res;
+      console.log(this.item);
+    },(err)=>{
+      console.log(err);  
+    })
+    // fetching item objects
+    this.http.get(getHost()+"/api/items",{headers}).subscribe((res)=>{
+      this.inventoryitems=res;
+      console.log(this.item);
+    },(err)=>{
+      console.log(err);  
+    })
+    // fetching Unit objects
+    this.http.get(getHost()+"/api/units",{headers}).subscribe((res)=>{
+      this.units=res;
+      console.log(this.item);
+    },(err)=>{
+      console.log(err);  
+    })
+
   }
 }

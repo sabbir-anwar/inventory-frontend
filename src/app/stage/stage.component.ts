@@ -28,7 +28,7 @@ import { formArrayNameProvider } from '@angular/forms/src/directives/reactive_di
 })
 export class StageComponent implements OnInit {
 
-  stage = null;
+  stages = null;
   show = false;
   constructor(private http:HttpClient,private router:Router) {
 
@@ -87,10 +87,10 @@ export class StageComponent implements OnInit {
   {
      let token=localStorage.getItem("token");
      let headers= new HttpHeaders().append("Authorization","Bearer "+token);
-     this.http.get(getHost()+"/api/stage",{headers}).subscribe((res)=>{
+     this.http.get(getHost()+"/api/stages",{headers}).subscribe((res)=>{
        console.log("res");
        console.log(res); 
-       this.stage=res;
+       this.stages=res;
      },(err)=>{
        console.log("error")
        console.log(err)

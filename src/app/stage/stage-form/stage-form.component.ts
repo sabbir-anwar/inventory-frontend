@@ -12,7 +12,7 @@ export class StageFormComponent implements OnInit {
 
   @Input() payhead:any;
   @Output() messageEvent=new EventEmitter<boolean>();
-  stage=null;
+  stages=null;
   item={
     name:"",
     description:""
@@ -46,7 +46,7 @@ export class StageFormComponent implements OnInit {
       let token=localStorage.getItem("token");
       let headers= new HttpHeaders().append("Authorization","Bearer "+token);
       
-      this.http.post(getHost()+"/api/stage",this.item,{headers}).subscribe((res)=>{
+      this.http.post(getHost()+"/api/stages",this.item,{headers}).subscribe((res)=>{
         this.sendMessageToParent(this);
         this.init();      
         // this.lock = false;
@@ -79,8 +79,8 @@ export class StageFormComponent implements OnInit {
     let token=localStorage.getItem("token");
     
     let headers= new HttpHeaders().append("Authorization","Bearer "+token);
-    this.http.get(getHost()+"/api/stage",{headers}).subscribe((res)=>{
-      this.stage=res;
+    this.http.get(getHost()+"/api/stages",{headers}).subscribe((res)=>{
+      this.stages=res;
       console.log(this.item);  
       //  this.sendMessageToParent(true);
       
