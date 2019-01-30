@@ -9,32 +9,50 @@
             </div>
             <hr>
             <form action="" method="post" novalidate="novalidate">
-                <div class="form-group">
-                    <label for="cc-payment" class="control-label mb-1">Stage</label>
-                    <input class="form-control" type="text" [(ngModel)]="item.name" name="item.name">
-                </div>
-                <div class="form-group has-success">
-                    <label for="cc-name" class="control-label mb-1">Locaion</label>
-                    <input class="form-control" type="text" [(ngModel)]="item.symbol" name="item.symbol">
-                </div>
-                <div class="form-group has-success">
-                  <label for="cc-name" class="control-label mb-1">Unit</label>
-                  <input class="form-control" type="text" [(ngModel)]="item.symbol" name="item.symbol">
-              </div>
-              <div class="form-group has-success">
-                <label for="cc-name" class="control-label mb-1">Quantity</label>
-                <input class="form-control" type="text" [(ngModel)]="item.symbol" name="item.symbol">
-            </div>
-
-
-                <!-- <div class="row form-group">
+                <div class="row form-group">
                     <div class="col col-md-3">
-                    <label for="textarea-input" class=" form-control-label">Description</label>
+                    <label for="categories" class=" form-control-label">Stage</label>
                     </div>
-                    <div class="col-12 col-md-9">
-                    <textarea [(ngModel)]="item.description" name="item.description" id="textarea-input" rows="9" placeholder="Content..." class="form-control"></textarea>
+                    <div class="col-12 col-md-9" >
+                    <select [(ngModel)]="item.stage_id" name="item.stage_id" class="form-control" *ngIf="units" >
+                        <option *ngFor="let stage of stages" value={{stage.id}}>{{stage.name}}</option>
+                    </select>
                     </div>
-                </div> -->
+                </div>
+                <div class="row form-group">
+                    <div class="col col-md-3">
+                    <label for="categories" class=" form-control-label">Location</label>
+                    </div>
+                    <div class="col-12 col-md-9" >
+                    <select [(ngModel)]="item.location_id" name="item.location_id" class="form-control" *ngIf="units" >
+                        <option *ngFor="let location of locations" value={{location.id}}>{{location.name}}</option>
+                    </select>
+                    </div>
+                </div>
+                <div class="row form-group">
+                    <div class="col col-md-3">
+                    <label for="categories" class=" form-control-label">Inventory Item</label>
+                    </div>
+                    <div class="col-12 col-md-9" >
+                    <select [(ngModel)]="item.item_id" name="item.item_id" class="form-control" *ngIf="units" >
+                        <option *ngFor="let inventoryitem of inventoryitems" value={{inventoryitem.id}}>{{inventoryitem.name}}</option>
+                    </select>
+                    </div>
+                </div>
+                <div class="row form-group">
+                    <div class="col col-md-3">
+                    <label for="categories" class=" form-control-label">Unit</label>
+                    </div>
+                    <div class="col-12 col-md-9" >
+                    <select [(ngModel)]="item.unit_id" name="item.unit_id" class="form-control" *ngIf="units" >
+                        <option *ngFor="let unit of units" value={{unit.id}}>{{unit.name}}</option>
+                    </select>
+                    </div>
+                </div>
+                <div class="form-group has-success">
+                <label for="cc-name" class="control-label mb-1">Quantity</label>
+                <input class="form-control" type="text" [(ngModel)]="item.quantity" name="item.quantity">
+                </div>
                 <div class = row>
                     <div class= "col-md-4"></div>
                     <div *ngIf="!lock" class="col-md-5">

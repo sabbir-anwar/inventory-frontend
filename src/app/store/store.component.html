@@ -15,16 +15,18 @@
                         <th>#</th>
                         <th>Stage</th>
                         <th>Location</th>
+                        <th>Item</th>
                         <th>Unit</th>
                         <th>Quantity</th>
                       </tr>
                   </thead>
                   <tbody>
-                    <tr *ngFor="let unit of units; index as i" (click)="seeDetailView(store)">
+                    <tr *ngFor="let store of stores; index as i" (click)="seeDetailView(store)">
                       <td scope="row">{{i+1}}</td>
-                      <td>{{store.stage}}</td>
-                      <td>{{store.location}}</td>
-                      <td>{{store.unit}}</td>
+                      <td>{{store.stage.name}}</td>
+                      <td>{{store.location.name}}</td>
+                      <td>{{store.item.name}}</td>
+                      <td>{{store.unit.symbol}}</td>
                       <td>{{store.quantity}}</td>
                     </tr>
                   </tbody>

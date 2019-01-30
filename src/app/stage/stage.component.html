@@ -18,7 +18,7 @@
                       </tr>
                   </thead>
                   <tbody>
-                    <tr *ngFor="let unit of units; index as i" (click)="seeDetailView(stage)">
+                    <tr *ngFor="let stage of stages; index as i" (click)="seeDetailView(stage)">
                       <td scope="row">{{i+1}}</td>
                       <td>{{stage.name}}</td>
                       <td>{{stage.description}}</td>

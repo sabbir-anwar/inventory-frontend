@@ -28,7 +28,7 @@ import { formArrayNameProvider } from '@angular/forms/src/directives/reactive_di
 })
 export class StoreComponent implements OnInit {
 
-  store = null;
+  stores = null;
   show = false;
   constructor(private http:HttpClient,private router:Router) {
 
@@ -87,10 +87,10 @@ export class StoreComponent implements OnInit {
   {
      let token=localStorage.getItem("token");
      let headers= new HttpHeaders().append("Authorization","Bearer "+token);
-     this.http.get(getHost()+"/api/units",{headers}).subscribe((res)=>{
+     this.http.get(getHost()+"/api/stores",{headers}).subscribe((res)=>{
        console.log("res");
        console.log(res); 
-       this.store=res;
+       this.stores=res;
      },(err)=>{
        console.log("error")
        console.log(err)
