@@ -6,8 +6,8 @@
     position: fixed;
     top: 0;
     right: 0;
-    left: 300px;
-    height: 75px;
+    left: 255px;
+    height: 60px;
     z-index: 3;
 }
 .header-content .section-content {

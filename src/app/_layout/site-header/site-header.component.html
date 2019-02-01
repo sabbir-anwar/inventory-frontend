@@ -1,11 +1,19 @@
 <header class="header-content">
     <div class="section-content">
         <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-8">
+                    <form class="form-header" action="" method="POST">
+                        <input class="au-input" type="text" name="search" placeholder="Search for datas &amp; reports..." />
+                        <button class="btn btn-primary" type="submit"><i class="fas fa-search p-r-5"></i>Search</button>
+                    </form>
+                </div>
+                <div class="col-md-4">
+                    <button  class="btn btn-danger m-l-20 right-float" (click)="logout()">Logout</button>
+                </div>
+            </div>
             <div class="header-wrap">
-                <form class="form-header" action="" method="POST">
-                    <input class="au-input" type="text" name="search" placeholder="Search for datas &amp; reports..." />
-                    <button class="btn btn-primary" type="submit"><i class="fas fa-search p-r-5"></i>Search</button>
-                </form>
+                
             </div>
         </div>
     </div>

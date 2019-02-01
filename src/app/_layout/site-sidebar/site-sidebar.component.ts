@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./site-sidebar.component.css']
 })
 export class SiteSidebarComponent implements OnInit {
-  title='Payroll';
+  title='IMS';
   menuItems=[
     {
       name:'Dashboard',
@@ -51,6 +51,10 @@ export class SiteSidebarComponent implements OnInit {
     {
       name:'Booking',
       link: '/bookings'
+    },
+    {
+      name:'Purchase',
+      link: '/purchases'
     }
 
 ]
