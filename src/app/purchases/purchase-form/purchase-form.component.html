@@ -1,0 +1,70 @@
+<div class="modal-wrapper">
+    <div class="modal-contain">
+       <div class="container">
+      <div class="card">
+          <div class="card-header text-center">Add Purchase</div>
+          <div class="card-body">
+              <div class="card-title">
+                  <h3 class="text-center title-2">Purchase</h3>
+              </div>
+              <hr>
+              <form action="" method="post" novalidate="novalidate">
+                  <div class="form-group">
+                      <label for="cc-payment" class="control-label mb-1">receiptNumber</label>
+                      <input class="form-control" type="text" [(ngModel)]="item.receiptNumber" name="item.receiptNumber">
+                  </div>
+                  <div class="form-group has-success">
+                      <label for="cc-name" class="control-label mb-1">Seller Name</label>
+                      <input class="form-control" type="text" [(ngModel)]="item.sellerName" name="item.sellerName">
+                  </div>
+                  <div class="form-group has-success">
+                      <label for="cc-name" class="control-label mb-1">sellerAddress</label>
+                      <input class="form-control" type="text" [(ngModel)]="item.sellerAddress" name="item.sellerAddress">
+                  </div>
+                  <div class="form-group has-success">
+                      <label for="cc-name" class="control-label mb-1">purchaseDate</label>
+                      <input class="form-control" type="date" [(ngModel)]="item.purchaseDate" name="item.purchaseDate">
+                  </div>
+                  <div class="form-group has-success">
+                      <label for="cc-name" class="control-label mb-1">delivaryDate</label>
+                      <input class="form-control" type="date" [(ngModel)]="item.delivaryDate" name="item.delivaryDate">
+                  </div>
+                  <div class="row form-group">
+                    <div class="col col-md-3">
+                    <label for="categories" class=" form-control-label">Unit</label>
+                    </div>
+                    <div class="col-12 col-md-9" >
+                    <select [(ngModel)]="item.unit_id" name="item.unit_id" class="form-control" *ngIf="units" >
+                        <option *ngFor="let unit of units" value={{unit.id}}>{{unit.name}}</option>
+                    </select>
+                    </div>
+                  </div>
+                  <div class="form-group has-success">
+                      <label for="cc-name" class="control-label mb-1">quantity</label>
+                      <input class="form-control" type="number" [(ngModel)]="item.quantity" name="item.quantity">
+                  </div>
+                  <div class="row form-group">
+                    <div class="col col-md-3">
+                    <label for="categories" class=" form-control-label">Item</label>
+                    </div>
+                    <div class="col-12 col-md-9" >
+                    <select [(ngModel)]="item.item_id" name="item.item_id" class="form-control" *ngIf="inventoryitems" >
+                        <option *ngFor="let inventoryitem of inventoryitems" value={{inventoryitem.id}}>{{inventoryitem.name}}</option>
+                    </select>
+                    </div>
+                  </div>
+                  <div class = row>
+                      <div class= "col-md-4"></div>
+                      <div *ngIf="!lock" class="col-md-5">
+                          <button  class="btn btn-success" (click)="submit()">Submit</button>
+                          <button  class="btn btn-danger m-l-20" (click)="cancel()">Cancel</button> 
+                      </div>
+                      <div class="col-md-3"></div>
+                  </div>
+              </form>
+          </div>
+      </div>
+  </div>
+  </div>
+  </div>
+  
