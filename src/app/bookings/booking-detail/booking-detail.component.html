@@ -1,23 +1,75 @@
 <div class="container-fluid main-content">
   <div class="row">
-      <div class="col-md-4">
-          <h2 class="title-1 m-b-25">booking Request</h2>
-      </div>
-      <div class="col-md-4"></div>
-      <div class = "col-md-4"> 
-            <!-- <button class="btn btn-primary right-float" (click)="addNew()"><i class="fas fa-plus"></i>Add booking</button> -->
-      </div>
+    <h2 class="title-1 m-b-25 m-l-15">booking Request</h2>
     <div class="col-md-12" *ngIf="details">
-      <div>{{details.item.name}}</div>
-      <div>{{details.quantity}} {{details.unit.symbol}}</div>
-      <div>{{details.style.name}}</div>
-      <div>{{details.priceperunit}}</div>
-      <div>{{details.date}}</div>
-      <div>{{details.description}}</div>
+      <div class="table-responsive table--no-card m-b-10">
+          <table class="table-detail">
+              <tr>
+                <td class="table-30">Requested By</td>
+                <td class="table-70">{{details.cratedBy}}</td>
+              </tr>
+              <tr>
+                <td>Item Name</td>
+                <td>{{details.item.name}}</td>
+              </tr>
+              <tr>
+                <td>Item Description</td>
+                <td>{{details.item.description}}</td>
+              </tr>
+              <tr>
+                <td>Item Color Code</td>
+                <td>{{details.item.color_code}}</td>
+              </tr>
+              <tr>
+                <td>Quantity</td>
+                <td>{{details.quantity}} {{details.unit.symbol}}</td>
+              </tr>
+              <tr>
+                <td>Price Per Unit</td>
+                <td>{{details.priceperunit}}</td>
+              </tr>
+              <tr>
+                <td>Project Name</td>
+                <td>{{details.style.project.name}}</td>
+              </tr>
+              <tr>
+                <td>Client Name</td>
+                <td>{{details.style.project.client.name}}</td>
+              </tr>
+              <tr>
+                <td>Style Name</td>
+                <td> {{details.style.name}}</td>
+              </tr>
+              <tr>
+                <td>Style Name</td>
+                <td> {{details.style.name}}</td>
+              </tr>
+              <tr>
+                <td>Date</td>
+                <td>{{details.date}}</td>
+              </tr>
+              <tr>
+                <td>Description</td>
+                <td>{{details.description}}</td>
+              </tr>
+            </table>
+      </div>
     </div>
   </div>
-  <div class="row">
-    <button class="btn btn-primary right-float"><i class="fa fa-check"></i>Approve</button>
-    <button class="btn btn-primary right-float"><i class="fa fa-times"></i>Decline</button>
+  <div class="row form-group m-t-20">
+    <div class="col-md-6">
+        <h3>Approval Status</h3>
+        <div class="row m-t-15">
+            <div class="col-md-6">
+                <select [(ngModel)]="selectedstatus" name="selectedstatus" class="form-control" *ngIf="status" >
+                    <option *ngFor="let s of status" value={{s}}>{{s}}</option>
+                </select>
+            </div>
+            <div class="col-md-6">
+              <button class="btn btn-success btn-blocks" (click)="submitStatus()">Submit</button>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6"></div>
   </div>
 </div>

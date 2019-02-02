@@ -1,0 +1,24 @@
+.table-detail{
+border-collapse: collapse;
+width: 100%;
+background: #fff;
+}
+
+.table-detail td, .table-detail th {
+border: 1px solid #ddd;
+padding: 8px;
+}
+
+.table-detail th {
+padding-top: 12px;
+padding-bottom: 12px;
+text-align: left;
+background-color: #4CAF50;
+color: white;
+}
+.table-30{
+    width: 30%;
+}
+.table-70{
+    width: 70%;
+}
