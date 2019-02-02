@@ -31,6 +31,8 @@ export class BookingDetailComponent implements OnInit {
   booking_id:number;
   show:boolean;
   details:any;
+  status:any;
+  selectedstatus:any;
   constructor(private http:HttpClient,private route:ActivatedRoute, private router:Router) {
     this.show = false;
     let token=localStorage.getItem("token");
@@ -65,8 +67,19 @@ export class BookingDetailComponent implements OnInit {
     this.http.get(this.url,{headers:header}).subscribe((response)=>{
     console.log(response);
     this.details = response;
-     
     });
+    this.loadStatus();
+  }
+  loadStatus(){
+    let token=localStorage.getItem("token");
+    let headers= new HttpHeaders().append("Authorization","Bearer "+token);
+
+    this.http.get(getHost()+"/api/booking/avalilablestatus/"+this.booking_id+"/",{headers}).subscribe((res)=>{
+      this.status=res; 
+      console.log(status);
+    },(err)=>{
+    console.log(err);  
+    })
   }
   //receving message from child component
   receiveMessage($event)
@@ -84,6 +97,17 @@ export class BookingDetailComponent implements OnInit {
   //animation related methods amd properties
    get stateName(){
     return this.show ? 'show' : 'hide'  
+  }
+  submitStatus(){
+    let token=localStorage.getItem("token");
+    let headers= new HttpHeaders().append("Authorization","Bearer "+token);
+
+    this.http.get(getHost()+"/api/booking/"+this.booking_id+"/changestatus/"+this.selectedstatus,{headers}).subscribe((res)=>{
+      this.status=res; 
+      console.log(status);
+    },(err)=>{
+    console.log(err);  
+    })
   }
 
 }
