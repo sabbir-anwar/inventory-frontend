@@ -55,7 +55,12 @@ export class BookingsComponent implements OnInit {
   get stateName(){
     return this.show ? 'show' : 'hide'  
   }
-
+  seeDetailView(booking) {
+    let id=booking.id;
+    console.log("seedetailview"+booking);
+    console.log(booking);
+    this.router.navigate(["/bookings",id]);
+  }
   addNew()
   {
     this.show=true;

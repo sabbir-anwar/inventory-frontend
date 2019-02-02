@@ -1,0 +1,23 @@
+<div class="container-fluid main-content">
+  <div class="row">
+      <div class="col-md-4">
+          <h2 class="title-1 m-b-25">booking Request</h2>
+      </div>
+      <div class="col-md-4"></div>
+      <div class = "col-md-4"> 
+            <!-- <button class="btn btn-primary right-float" (click)="addNew()"><i class="fas fa-plus"></i>Add booking</button> -->
+      </div>
+    <div class="col-md-12" *ngIf="details">
+      <div>{{details.item.name}}</div>
+      <div>{{details.quantity}} {{details.unit.symbol}}</div>
+      <div>{{details.style.name}}</div>
+      <div>{{details.priceperunit}}</div>
+      <div>{{details.date}}</div>
+      <div>{{details.description}}</div>
+    </div>
+  </div>
+  <div class="row">
+    <button class="btn btn-primary right-float"><i class="fa fa-check"></i>Approve</button>
+    <button class="btn btn-primary right-float"><i class="fa fa-times"></i>Decline</button>
+  </div>
+</div>

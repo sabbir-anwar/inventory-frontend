@@ -38,6 +38,7 @@ import { BookingsComponent } from './bookings/bookings.component';
 import { BookingFormComponent } from './bookings/booking-form/booking-form.component';
 import { PurchasesComponent } from './purchases/purchases.component';
 import { PurchaseFormComponent } from './purchases/purchase-form/purchase-form.component';
+import { BookingDetailComponent } from './bookings/booking-detail/booking-detail.component';
 
 
 const appRoutes:Routes=[
@@ -59,6 +60,7 @@ const appRoutes:Routes=[
           { path: 'stage', component: StageComponent},
           { path: 'store', component: StoreComponent},
           { path: 'bookings', component: BookingsComponent},
+          { path: 'bookings/:id', component: BookingDetailComponent},
           {path: 'purchases', component: PurchasesComponent}
         ]
   },
@@ -100,7 +102,8 @@ const appRoutes:Routes=[
     BookingsComponent,
     BookingFormComponent,
     PurchasesComponent,
-    PurchaseFormComponent
+    PurchaseFormComponent,
+    BookingDetailComponent
   ],
   imports: [
     BrowserModule,
