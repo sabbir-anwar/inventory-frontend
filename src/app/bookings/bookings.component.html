@@ -14,22 +14,20 @@
                       <tr>
                         <th>#</th>
                         <th>Quantity</th>
-                        <th>Unit</th>
                         <th>Item</th>
                         <th>Style</th>
-                        <th>PricePerUnit</th>
                         <th>Status</th>
+                        <th>Detail View</th>
                       </tr>
                   </thead>
                   <tbody>
-                    <tr *ngFor="let booking of bookings; index as i" (click)="seeDetailView(unit)">
+                    <tr *ngFor="let booking of bookings; index as i">
                       <td scope="row">{{i+1}}</td>
-                      <td>{{booking.quantity}}</td>
-                      <td>{{booking.unit.name}}</td>
+                      <td>{{booking.quantity}} {{booking.unit.symbol}}</td>
                       <td>{{booking.item.name}}</td>
                       <td>{{booking.style.name}}</td>
-                      <td>{{booking.priceperunit}}</td>
                       <td>{{booking.status}}</td>
+                      <td><button class="btn btn-outline-info btn-xs m-r-5" data-toggle="tooltip" data-original-title="Edit" (click)="seeDetailView(booking)"><i class="fa fa-pencil font-14"></i></button></td>
                     </tr>
                   </tbody>
               </table>
