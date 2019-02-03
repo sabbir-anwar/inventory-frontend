@@ -1,0 +1,43 @@
+<div class="container-fluid main-content">
+  <div class="row">
+    <h2 class="title-1 m-b-25 m-l-15">Store Detail</h2>
+    <div class="col-md-12" *ngIf="details">
+      <div class="table-responsive table--no-card m-b-10">
+          <table class="table-detail">
+              <tr>
+                <td class="table-30">Stage Name</td>
+                <td class="table-70">{{details.stage.name}}</td>
+              </tr>
+              <tr>
+                <td>Location Name</td>
+                <td>{{details.location.name}}</td>
+              </tr>
+              <tr>
+                <td>Address</td>
+                <td>{{details.location.address}}</td>
+              </tr>
+              <tr>
+                <td>Entry</td>
+                <td>{{details.createdAt}}</td>
+              </tr>
+              <tr>
+                <td>Item Name</td>
+                <td>{{details.item.name}}</td>
+              </tr>
+              <tr>
+                <td>Item Color</td>
+                <td>{{details.item.color_code}}</td>
+              </tr>
+              <tr>
+                <td>Item description</td>
+                <td>{{details.item.description}}</td>
+              </tr>
+              <tr>
+                <td>Quantity</td>
+                <td>{{details.quantity}} {{details.unit.name}}</td>
+              </tr>
+            </table>
+      </div>
+    </div>
+  </div>
+</div>

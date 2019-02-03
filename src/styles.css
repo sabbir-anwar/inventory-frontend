@@ -379,6 +379,7 @@ a {
     -moz-transition: all 0.3s ease;
     transition: all 0.3s ease;
 }
+/* List Table Styles */
 .table{
     margin-bottom: 0;
 }
@@ -424,4 +425,32 @@ a {
     -moz-transition: all 0.5s ease;
     transition: all 0.5s ease;
     min-width: 350px;
+}
+.detail-btn{
+    padding: 0.05rem 0.45rem;
+}
+/* Detail View Table Style */
+.table-detail{
+    border-collapse: collapse;
+    width: 100%;
+    background: #fff;
+}
+
+.table-detail td, .table-detail th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+.table-detail th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #4CAF50;
+    color: white;
+}
+.table-30{
+    width: 30%;
+}
+.table-70{
+    width: 70%;
 }

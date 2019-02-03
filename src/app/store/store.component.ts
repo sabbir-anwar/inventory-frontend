@@ -56,7 +56,12 @@ export class StoreComponent implements OnInit {
   get stateName(){
     return this.show ? 'show' : 'hide'  
   }
-
+  seeDetailView(store) {
+    let id=store.id;
+    console.log("seedetailview"+store);
+    console.log(store);
+    this.router.navigate(["/stores",id]);
+  }
   addNew()
   {
     this.show=true;
