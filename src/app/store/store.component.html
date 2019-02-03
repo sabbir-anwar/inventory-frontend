@@ -16,8 +16,8 @@
                         <th>Stage</th>
                         <th>Location</th>
                         <th>Item</th>
-                        <th>Unit</th>
                         <th>Quantity</th>
+                        <th>Detail View</th>
                       </tr>
                   </thead>
                   <tbody>
@@ -26,8 +26,8 @@
                       <td>{{store.stage.name}}</td>
                       <td>{{store.location.name}}</td>
                       <td>{{store.item.name}}</td>
-                      <td>{{store.unit.symbol}}</td>
-                      <td>{{store.quantity}}</td>
+                      <td>{{store.quantity}} {{store.unit.symbol}}</td>
+                      <td><button class="btn btn-outline-info btn-xs m-r-5 detail-btn" data-toggle="tooltip" data-original-title="Edit" (click)="seeDetailView(store)"><i class="fa fa-pencil font-14"></i></button></td>
                     </tr>
                   </tbody>
               </table>
