@@ -29,28 +29,20 @@ export class ItemFormComponent implements OnInit {
       console.log(res);
      // this.router.navigate(["dashboard"]);
 
-    
-
-
    },(err)=>{
-     
-      
+           
       if(err.status==401)
       {
         this.router.navigate(["login"]); 
       }
-
-     //this.router.navigate(["login"]); 
+    //this.router.navigate(["login"]); 
    });
 
   }
-
-
   ngOnInit() {
     this.init();
 
   }
-
   lock = false;  
   submit(){
     this.lock = true;

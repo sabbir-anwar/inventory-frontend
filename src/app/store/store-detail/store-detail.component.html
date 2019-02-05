@@ -40,4 +40,45 @@
       </div>
     </div>
   </div>
+
+  <div class="row form-group m-t-20 rf-card">
+    <div class="col-md-12">
+        <h3>Move Inventories</h3>
+        <div class="row m-t-15">
+            
+            <div class="col-md-3">
+              <label for="cc-name" class="control-label mb-1">Stages</label>
+                <select [(ngModel)]="move.to_stage" name="move.to_stage" class="form-control" *ngIf="stages" >
+                    <option *ngFor="let s of stages" value={{s.id}}>{{s.name}}</option>
+                </select>
+            </div>
+            <div class="col-md-3">
+                <label for="cc-name" class="control-label mb-1">Locations</label>
+                <select [(ngModel)]="move.to_location" name="move.to_location" class="form-control" *ngIf="locations" >
+                    <option *ngFor="let s of locations" value={{s.id}}>{{s.name}}</option>
+                </select>
+            </div>
+        </div>
+        <div class="row">
+          <div class="col-md-3">
+               <div class="form-group has-success">
+                  <label for="cc-name" class="control-label mb-1">Quantity</label>
+                  <input class="form-control" type="number" [(ngModel)]="move.quntity" name="move.quntity">
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-group has-success">
+                  <label for="cc-name" class="control-label mb-1">Description</label>
+                  <input class="form-control" type="text" [(ngModel)]="move.description" name="move.description">
+                </div>
+            </div>
+            
+            
+        </div>
+        <div class="">
+              <button class="btn btn-success btn-blocks" (click)="submitMoveRequest()">Submit</button>
+         </div>
+    </div>
+    <div class="col-md-6"></div>
+  </div>
 </div>
