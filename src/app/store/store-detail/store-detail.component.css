@@ -1,0 +1,9 @@
+.rf-card{
+    background-color: white;
+    padding: 30px;
+    margin: 3px;
+    margin-top: 20px;
+    margin-bottom: 100px;
+    box-shadow: 0px 0px 6px 1px gray;
+    border: 5px double #b9b9b9;
+}

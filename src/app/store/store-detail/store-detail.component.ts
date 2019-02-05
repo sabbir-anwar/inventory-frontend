@@ -33,6 +33,16 @@ export class StoreDetailComponent implements OnInit {
   details:any;
   status:any;
 
+
+  move={
+    from_store:0,
+    to_stage:'',
+    quntity:0,
+    description:'',
+    to_location:''
+    
+ }
+
   constructor(private http:HttpClient,private route:ActivatedRoute, private router:Router) {
     this.show = false;
     let token=localStorage.getItem("token");
@@ -56,11 +66,20 @@ export class StoreDetailComponent implements OnInit {
     //catching the id from the url
     
     this.store_id=parseInt(this.route.snapshot.paramMap.get('id'));
+    this.move.from_store=this.store_id;
     this.url = getHost()+"/api/stores/"+this.store_id;
     this.loadData();
   }
   loadData()
   {
+    this.move={
+    from_store:this.store_id,
+    to_stage:'',
+    quntity:0,
+    description:'',
+    to_location:''
+    
+ }
     console.log("Inside loadData"+this.url);
     let token=localStorage.getItem("token");
     let header= new HttpHeaders().append("Authorization","Bearer "+token);
@@ -68,8 +87,52 @@ export class StoreDetailComponent implements OnInit {
     console.log(response);
     this.details = response;
     });
+    this.loadLocations();
+    this.loadStages(); 
   }
   //receving message from child component
+locations=null;
+stages=null;
+
+submitMoveRequest()
+{
+     let token=localStorage.getItem("token");
+     let header= new HttpHeaders().append("Authorization","Bearer "+token);
+     this.http.post(getHost()+"/api/stores/moveitem",this.move,{headers:header}).subscribe((response)=>{
+     console.log(response);
+     
+     alert(response);
+     this.loadData()
+    },(error)=>{
+
+      if(error.status == 200)
+      {
+        console.log(error);
+        alert("Successfully moved.");
+        this.loadData()
+      }
+    });
+
+}
+loadLocations()
+{
+    let token=localStorage.getItem("token");
+     let header= new HttpHeaders().append("Authorization","Bearer "+token);
+     this.http.get(getHost()+"/api/locations",{headers:header}).subscribe((response)=>{
+     console.log(response);
+     this.locations = response;
+    });
+}
+loadStages()
+{
+let token=localStorage.getItem("token");
+     let header= new HttpHeaders().append("Authorization","Bearer "+token);
+     this.http.get(getHost()+"/api/stages",{headers:header}).subscribe((response)=>{
+     console.log(response);
+     this.stages = response;
+    });
+}
+
   receiveMessage($event)
   {
       console.log("Message is "+$event); 
