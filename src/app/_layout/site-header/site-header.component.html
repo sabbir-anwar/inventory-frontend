@@ -3,7 +3,7 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-8">
-                    <form class="form-header" action="" method="POST">
+                    <form class="form-header" action="" method="POST" *ngIf="displaySearch">
                         <input class="au-input" type="text" name="search" placeholder="Search for datas &amp; reports..." />
                         <button class="btn btn-primary" type="submit"><i class="fas fa-search p-r-5"></i>Search</button>
                     </form>

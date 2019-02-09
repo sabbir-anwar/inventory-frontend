@@ -1,6 +1,6 @@
 <div class="container-fluid main-content">
   <div class="row">
-    <h2 class="title-1 m-b-25 m-l-15">Store Detail</h2>
+    <h2 class="title-1 m-b-25 m-l-15">Detail</h2>
     <div class="col-md-12" *ngIf="details">
       <div class="table-responsive table--no-card m-b-10">
           <table class="table-detail">
@@ -41,7 +41,7 @@
     </div>
   </div>
 
-  <div class="row form-group m-t-20 rf-card">
+  <div class="row form-group m-t-20 rf-card" *ngIf="isStoreManager">
     <div class="col-md-12">
         <h3>Move Inventories</h3>
         <div class="row m-t-15">

@@ -59,7 +59,7 @@ const appRoutes:Routes=[
           { path: 'projects/:id', component: ProjectsDetailComponent},
           { path: 'locations', component: LocationsComponent},
           { path: 'stage', component: StageComponent},
-          { path: 'stores', component: StoreComponent},
+          { path: 'inventories', component: StoreComponent},
           {path: 'stores/:id', component: StoreDetailComponent},
           { path: 'bookings', component: BookingsComponent},
           { path: 'bookings/:id', component: BookingDetailComponent},

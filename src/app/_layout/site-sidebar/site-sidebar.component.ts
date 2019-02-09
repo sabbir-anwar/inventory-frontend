@@ -8,10 +8,10 @@ import { Component, OnInit } from '@angular/core';
 export class SiteSidebarComponent implements OnInit {
   title='IMS';
   menuItems=[
-    {
+   /* {
       name:'Dashboard',
       link:'/dashboard'
-    },
+    }*/
     {
       name:'Inventory Items',
       link:'/items'
@@ -45,8 +45,8 @@ export class SiteSidebarComponent implements OnInit {
       link: '/stage'
     },
     {
-      name: 'Store',
-      link: '/stores'
+      name: 'Inventories',
+      link: '/inventories'
     },
     {
       name:'Booking',

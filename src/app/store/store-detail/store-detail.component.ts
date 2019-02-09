@@ -43,23 +43,53 @@ export class StoreDetailComponent implements OnInit {
     
  }
 
+ isAdmin=false;
+ isStoreManager=false;
+ isOwner=false;
+
   constructor(private http:HttpClient,private route:ActivatedRoute, private router:Router) {
     this.show = false;
     let token=localStorage.getItem("token");
     let header= new HttpHeaders().append("Authorization","Bearer "+token);
     this.http.get(getHost()+"/hello",{headers:header}).subscribe((res)=>{
-       console.log(res);
+       console.log("here I am");
+       
+
       // this.router.navigate(["dashboard"]);
     },(err)=>{
        if(err.status==401)
        {
          this.router.navigate(["login"]); 
        }
+       if(err.status==200)
+       {
+         this.http.get(getHost()+"/api/info/user/role",{headers:header}).subscribe((res)=>{
+          console.log("roles are")
+          console.log(res);
+          this.processRoles(res); 
+       }); 
+       }
       //this.router.navigate(["login"]); 
     });
    }
 
  
+ processRoles(roles)
+ {
+   for (var c=0;c<roles.length;c++)
+   {
+     
+      if(roles[c].role =='admin' )
+      {
+        this.isAdmin=true;
+      }
+      else if(roles[c].role =='store_manager' )
+      {
+        this.isStoreManager=true;
+      }
+   }
+ }
+
   url ="";
   ngOnInit() {
     // this.endpoint=getHost()+"/api/units/";
