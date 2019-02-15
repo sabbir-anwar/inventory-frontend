@@ -9,27 +9,37 @@
               </div>
               <hr>
               <form action="" method="post" novalidate="novalidate">
-                  <div class="form-group">
-                      <label for="cc-payment" class="control-label mb-1">receiptNumber</label>
-                      <input class="form-control" type="text" [(ngModel)]="item.receiptNumber" name="item.receiptNumber">
-                  </div>
-                  <div class="form-group has-success">
-                      <label for="cc-name" class="control-label mb-1">Seller Name</label>
-                      <input class="form-control" type="text" [(ngModel)]="item.sellerName" name="item.sellerName">
-                  </div>
-                  <div class="form-group has-success">
-                      <label for="cc-name" class="control-label mb-1">sellerAddress</label>
-                      <input class="form-control" type="text" [(ngModel)]="item.sellerAddress" name="item.sellerAddress">
-                  </div>
-                  <div class="form-group has-success">
-                      <label for="cc-name" class="control-label mb-1">purchaseDate</label>
-                      <input class="form-control" type="date" [(ngModel)]="item.purchaseDate" name="item.purchaseDate">
-                  </div>
-                  <div class="form-group has-success">
-                      <label for="cc-name" class="control-label mb-1">delivaryDate</label>
-                      <input class="form-control" type="date" [(ngModel)]="item.delivaryDate" name="item.delivaryDate">
-                  </div>
-                  <div class="row form-group">
+                <div class="row form-group">
+                    <div class="col col-md-3">
+                    <label for="categories" class=" form-control-label">Project</label>
+                    </div>
+                    <div class="col-12 col-md-9" >
+                    <select [(ngModel)]="item.project_id" name="item.project_id" class="form-control" *ngIf="projects" >
+                        <option *ngFor="let project of projects" value={{project.id}}>{{project.name}}</option>
+                    </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="cc-payment" class="control-label mb-1">receiptNumber</label>
+                    <input class="form-control" type="text" [(ngModel)]="item.receiptNumber" name="item.receiptNumber">
+                </div>
+                <div class="form-group has-success">
+                    <label for="cc-name" class="control-label mb-1">Seller Name</label>
+                    <input class="form-control" type="text" [(ngModel)]="item.sellerName" name="item.sellerName">
+                </div>
+                <div class="form-group has-success">
+                    <label for="cc-name" class="control-label mb-1">sellerAddress</label>
+                    <input class="form-control" type="text" [(ngModel)]="item.sellerAddress" name="item.sellerAddress">
+                </div>
+                <div class="form-group has-success">
+                    <label for="cc-name" class="control-label mb-1">purchaseDate</label>
+                    <input class="form-control" type="date" [(ngModel)]="item.purchaseDate" name="item.purchaseDate">
+                </div>
+                <div class="form-group has-success">
+                    <label for="cc-name" class="control-label mb-1">delivaryDate</label>
+                    <input class="form-control" type="date" [(ngModel)]="item.delivaryDate" name="item.delivaryDate">
+                </div>
+                <div class="row form-group">
                     <div class="col col-md-3">
                     <label for="categories" class=" form-control-label">Unit</label>
                     </div>
@@ -38,12 +48,12 @@
                         <option *ngFor="let unit of units" value={{unit.id}}>{{unit.name}}</option>
                     </select>
                     </div>
-                  </div>
-                  <div class="form-group has-success">
-                      <label for="cc-name" class="control-label mb-1">quantity</label>
-                      <input class="form-control" type="number" [(ngModel)]="item.quantity" name="item.quantity">
-                  </div>
-                  <div class="row form-group">
+                </div>
+                <div class="form-group has-success">
+                    <label for="cc-name" class="control-label mb-1">quantity</label>
+                    <input class="form-control" type="number" [(ngModel)]="item.quantity" name="item.quantity">
+                </div>
+                <div class="row form-group">
                     <div class="col col-md-3">
                     <label for="categories" class=" form-control-label">Item</label>
                     </div>
@@ -52,15 +62,19 @@
                         <option *ngFor="let inventoryitem of inventoryitems" value={{inventoryitem.id}}>{{inventoryitem.name}}</option>
                     </select>
                     </div>
-                  </div>
-                  <div class = row>
-                      <div class= "col-md-4"></div>
-                      <div *ngIf="!lock" class="col-md-5">
-                          <button  class="btn btn-success" (click)="submit()">Submit</button>
-                          <button  class="btn btn-danger m-l-20" (click)="cancel()">Cancel</button> 
-                      </div>
-                      <div class="col-md-3"></div>
-                  </div>
+                </div>
+                    <div class="form-group has-success">
+                    <label for="cc-name" class="control-label mb-1">Price Per Unit</label>
+                    <input class="form-control" type="number" [(ngModel)]="item.price_per_unit" name="item.price_per_unit">
+                    </div>
+                <div class = row>
+                    <div class= "col-md-4"></div>
+                    <div *ngIf="!lock" class="col-md-5">
+                        <button  class="btn btn-success" (click)="submit()">Submit</button>
+                        <button  class="btn btn-danger m-l-20" (click)="cancel()">Cancel</button> 
+                    </div>
+                    <div class="col-md-3"></div>
+                </div>
               </form>
           </div>
       </div>

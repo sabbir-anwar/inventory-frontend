@@ -13,23 +13,23 @@
                     <thead>
                         <tr>
                           <th>#</th>
+                          <th>Project</th>
                           <th>receiptNumber</th>
                           <th>sellerName</th>
-                          <th>sellerAddress</th>
-                          <th>unit_id</th>
                           <th>quantity</th>
                           <th>item_id</th>
+                          <th>Price Per Unit</th>
                         </tr>
                     </thead>
                     <tbody>
-                      <tr *ngFor="let purchase of purchases; index as i" (click)="seeDetailView(stage)">
+                      <tr *ngFor="let purchase of purchases; index as i">
                         <td scope="row">{{i+1}}</td>
+                        <td>{{purchase.project_id}}</td>
                         <td>{{purchase.receiptNumber}}</td>
                         <td>{{purchase.sellerName}}</td>
-                        <td>{{purchase.sellerAddress}}</td>
-                        <td>{{purchase.unit.name}}</td>
-                        <td>{{purchase.quantity}}</td>
+                        <td>{{purchase.quantity}} {{purchase.unit.name}}</td>
                         <td>{{purchase.item.name}}</td>
+                        <td>{{purchase.item.price_per_unit}}</td>
                       </tr>
                     </tbody>
                 </table>
