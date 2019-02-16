@@ -45,6 +45,8 @@ export class StoreFormComponent implements OnInit {
   submit()
   {
     this.lock = true;
+    console.log("checking------");
+    console.log(this.item);
     if(this.item.stage_id.length == 0||this.item.location_id.length == 0|| this.item.item_id.length==0|| this.item.unit_id.length==0|| this.item.quantity.length==0) 
     {
       return;
@@ -64,6 +66,8 @@ export class StoreFormComponent implements OnInit {
           this.init();           
        }
     });
+    console.log("checking------End");
+    console.log(this.item);
   }
 
   sendMessageToParent(message:any)  {
@@ -76,6 +80,7 @@ export class StoreFormComponent implements OnInit {
   }
 
   init(){
+    this.lock=false;
     this.item={
       stage_id:"",
       location_id:"",
