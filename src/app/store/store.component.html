@@ -3,7 +3,40 @@
       <div class="col-md-4">
           <h2 class="title-1 m-b-25">Inventories</h2>
       </div>
-      <div class="col-md-4"></div>
+
+
+      <!--filter starts here-->
+       <div class="col-md-4">
+        <div class="filters" >
+           <div class="form-group" *ngIf="stages">
+            <label for="sel1">Select stage:</label>
+            <select class="form-control" id="sel1" [(ngModel)]="selectedStage" name="selectedStage">
+              <option value="all" selected>All</option>
+              <option *ngFor="let s of stages" value={{s.name}}>{{s.name}}</option>
+              
+            </select>
+          </div> 
+           <div class="form-group" *ngIf="locations">
+            <label for="sel1">Select location:</label>
+            <select class="form-control" id="sel1" [(ngModel)]="selectedLocation" name="selectedLocation">
+              <option value="all" selected>All</option>
+             <option *ngFor="let s of locations" value={{s.name}}>{{s.name}}</option>
+            </select>
+          </div>
+           <div class="form-group" *ngIf="items">
+            <label for="sel1">Select item:</label>
+            <select class="form-control" id="sel1" [(ngModel)]="selectedItem" name="selectedItem">
+              <option value="all" selected>All</option>
+              <option *ngFor="let s of items" value={{s.name}}>{{s.name}}</option>
+            </select>
+          </div> 
+        </div>
+       <button class="btn btn-primary right-float" (click)="loadInventories()"><i class="fas fa-plus"></i>Apply Filter</button>
+      </div>
+      <!--filter ends here--> 
+     
+
+
       <div class = "col-md-4"> 
             <button class="btn btn-primary right-float" (click)="addNew()"><i class="fas fa-plus"></i>Add Store</button>
       </div>
