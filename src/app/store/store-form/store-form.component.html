@@ -14,7 +14,7 @@
                     <label for="categories" class=" form-control-label">Stage</label>
                     </div>
                     <div class="col-12 col-md-9" >
-                    <select [(ngModel)]="item.stage_id" name="item.stage_id" class="form-control" *ngIf="units" >
+                    <select [(ngModel)]="item.stage_id" name="item.stage_id" class="form-control" *ngIf="stages" >
                         <option *ngFor="let stage of stages" value={{stage.id}}>{{stage.name}}</option>
                     </select>
                     </div>
@@ -24,7 +24,7 @@
                     <label for="categories" class=" form-control-label">Location</label>
                     </div>
                     <div class="col-12 col-md-9" >
-                    <select [(ngModel)]="item.location_id" name="item.location_id" class="form-control" *ngIf="units" >
+                    <select [(ngModel)]="item.location_id" name="item.location_id" class="form-control" *ngIf="locations" >
                         <option *ngFor="let location of locations" value={{location.id}}>{{location.name}}</option>
                     </select>
                     </div>
@@ -34,7 +34,7 @@
                     <label for="categories" class=" form-control-label">Inventory Item</label>
                     </div>
                     <div class="col-12 col-md-9" >
-                    <select [(ngModel)]="item.item_id" name="item.item_id" class="form-control" *ngIf="units" >
+                    <select [(ngModel)]="item.item_id" name="item.item_id" class="form-control" *ngIf="inventoryitems" >
                         <option *ngFor="let inventoryitem of inventoryitems" value={{inventoryitem.id}}>{{inventoryitem.name}}</option>
                     </select>
                     </div>
