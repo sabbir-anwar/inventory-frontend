@@ -30,6 +30,12 @@ export class StoreComponent implements OnInit {
 
   stores = null;
   show = false;
+  stages=null;
+  locations=null;
+  items=null;
+  selectedStage="all";
+  selectedItem="all";
+  selectedLocation="all";
   constructor(private http:HttpClient,private router:Router) {
 
     let token=localStorage.getItem("token");
@@ -90,12 +96,75 @@ export class StoreComponent implements OnInit {
   }
   init()
   {
-     let token=localStorage.getItem("token");
+    this.selectedItem="all";
+    this.selectedLocation="all";
+    this.selectedStage="all"
+     this.loadInventories();
+     this.loadAllStages();
+     this.loadLocations();
+     this.loadItems();
+     
+
+  } 
+  loadInventories()
+  {
+    let token=localStorage.getItem("token");
      let headers= new HttpHeaders().append("Authorization","Bearer "+token);
-     this.http.get(getHost()+"/api/stores",{headers}).subscribe((res)=>{
+     this.http.get(getHost()+"/api/stores/getby/"+this.selectedStage+"/"+this.selectedLocation+"/"+this.selectedItem,{headers}).subscribe((res)=>{
        console.log("res");
        console.log(res); 
        this.stores=res;
+     },(err)=>{
+       console.log("error")
+       console.log(err)
+       if(err.status == 401)
+       {
+         this.router.navigate(["login"]);
+       }
+     })  
+  }
+  loadAllStages()
+  {
+     let token=localStorage.getItem("token");
+     let headers= new HttpHeaders().append("Authorization","Bearer "+token);
+     this.http.get(getHost()+"/api/stages",{headers}).subscribe((res)=>{
+       console.log("res");
+       console.log(res); 
+       this.stages=res;
+     },(err)=>{
+       console.log("error")
+       console.log(err)
+       if(err.status == 401)
+       {
+         this.router.navigate(["login"]);
+       }
+     })  
+  }
+  loadLocations()
+  {
+     let token=localStorage.getItem("token");
+     let headers= new HttpHeaders().append("Authorization","Bearer "+token);
+     this.http.get(getHost()+"/api/locations",{headers}).subscribe((res)=>{
+       console.log("res");
+       console.log(res); 
+       this.locations=res;
+     },(err)=>{
+       console.log("error")
+       console.log(err)
+       if(err.status == 401)
+       {
+         this.router.navigate(["login"]);
+       }
+     })  
+  }
+   loadItems()
+  {
+     let token=localStorage.getItem("token");
+     let headers= new HttpHeaders().append("Authorization","Bearer "+token);
+     this.http.get(getHost()+"/api/items",{headers}).subscribe((res)=>{
+       console.log("res");
+       console.log(res); 
+       this.items=res;
      },(err)=>{
        console.log("error")
        console.log(err)
