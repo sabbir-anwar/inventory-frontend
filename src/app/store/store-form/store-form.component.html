@@ -15,6 +15,7 @@
                     </div>
                     <div class="col-12 col-md-9" >
                     <select [(ngModel)]="item.stage_id" name="item.stage_id" class="form-control" *ngIf="stages" >
+                        <option value=""></option>  
                         <option *ngFor="let stage of stages" value={{stage.id}}>{{stage.name}}</option>
                     </select>
                     </div>
@@ -25,6 +26,7 @@
                     </div>
                     <div class="col-12 col-md-9" >
                     <select [(ngModel)]="item.location_id" name="item.location_id" class="form-control" *ngIf="locations" >
+                        <option value=""></option>
                         <option *ngFor="let location of locations" value={{location.id}}>{{location.name}}</option>
                     </select>
                     </div>
@@ -35,6 +37,7 @@
                     </div>
                     <div class="col-12 col-md-9" >
                     <select [(ngModel)]="item.item_id" name="item.item_id" class="form-control" *ngIf="inventoryitems" >
+                        <option value=""></option>
                         <option *ngFor="let inventoryitem of inventoryitems" value={{inventoryitem.id}}>{{inventoryitem.name}}</option>
                     </select>
                     </div>
@@ -45,6 +48,7 @@
                     </div>
                     <div class="col-12 col-md-9" >
                     <select [(ngModel)]="item.unit_id" name="item.unit_id" class="form-control" *ngIf="units" >
+                        <option value=""></option>
                         <option *ngFor="let unit of units" value={{unit.id}}>{{unit.name}}</option>
                     </select>
                     </div>
@@ -55,7 +59,7 @@
                 </div>
                 <div class = row>
                     <div class= "col-md-4"></div>
-                    <div *ngIf="!lock" class="col-md-5">
+                    <div  class="col-md-5">
                         <button  class="btn btn-success" (click)="submit()">Submit</button>
                         <button  class="btn btn-danger m-l-20" (click)="cancel()">Cancel</button> 
                     </div>
