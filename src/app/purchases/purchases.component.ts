@@ -87,7 +87,7 @@ export class PurchasesComponent implements OnInit {
      let token=localStorage.getItem("token");
      let headers= new HttpHeaders().append("Authorization","Bearer "+token);
      this.http.get(getHost()+"/api/purchases",{headers}).subscribe((res)=>{
-       console.log("res");
+       console.log("Here are the purchase response");
        console.log(res); 
        this.purchases=res;
      },(err)=>{

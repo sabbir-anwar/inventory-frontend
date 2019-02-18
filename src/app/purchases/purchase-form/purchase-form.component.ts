@@ -14,9 +14,9 @@ export class PurchaseFormComponent implements OnInit {
   @Output() messageEvent=new EventEmitter<boolean>();
   units=null;
   inventoryitems=null;
-  projects=null;
+  styles=null;
   item={
-    project_id:"",
+    style_id:"",
     receiptNumber:"",
     sellerName:"",
     sellerAddress:"",
@@ -25,7 +25,8 @@ export class PurchaseFormComponent implements OnInit {
     unit_id:"",
     quantity:"",
     item_id:"",
-    price_per_unit:""
+    price_per_unit:"",
+    discount:""
   }
   constructor(private http:HttpClient,private router:Router) {
     let token=localStorage.getItem("token");
@@ -48,7 +49,7 @@ export class PurchaseFormComponent implements OnInit {
   lock = false;
   submit(){
     this.lock = true;
-    if(this.item.project_id.length == 0||this.item.receiptNumber.length == 0||this.item.sellerName.length == 0|| this.item.sellerAddress.length==0 ||this.item.purchaseDate.length == 0 ||
+    if(this.item.style_id.length == 0||this.item.receiptNumber.length == 0||this.item.sellerName.length == 0|| this.item.sellerAddress.length==0 ||this.item.purchaseDate.length == 0 ||
       this.item.delivaryDate.length == 0||this.item.unit_id.length == 0||this.item.quantity.length == 0||this.item.item_id.length == 0||this.item.price_per_unit.length == 0) 
     {
       return;
@@ -81,7 +82,7 @@ export class PurchaseFormComponent implements OnInit {
 
   init(){
     this.item={
-      project_id:"",
+      style_id:"",
       receiptNumber:"",
       sellerName:"",
       sellerAddress:"",
@@ -90,14 +91,16 @@ export class PurchaseFormComponent implements OnInit {
       unit_id:"",
       quantity:"",
       item_id:"",
-      price_per_unit:""
+      price_per_unit:"",
+      discount:""
     }
     let token=localStorage.getItem("token");
     let headers= new HttpHeaders().append("Authorization","Bearer "+token);
 
-    this.http.get(getHost()+"/api/projects",{headers}).subscribe((res)=>{
-      this.projects=res;
-      console.log(this.item);  
+    this.http.get(getHost()+"/api/styles",{headers}).subscribe((res)=>{
+      this.styles=res;
+      console.log("Here i am getting the styles")
+      console.log(this.styles);  
     },(err)=>{
     console.log(err);  
     })

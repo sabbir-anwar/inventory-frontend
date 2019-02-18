@@ -13,7 +13,7 @@
                     <thead>
                         <tr>
                           <th>#</th>
-                          <th>Project</th>
+                          <th>Client</th>
                           <th>receiptNumber</th>
                           <th>sellerName</th>
                           <th>quantity</th>
@@ -24,12 +24,12 @@
                     <tbody>
                       <tr *ngFor="let purchase of purchases; index as i">
                         <td scope="row">{{i+1}}</td>
-                        <td>{{purchase.project_id}}</td>
+                        <td > <span *ngIf="purchase.style">{{purchase.style.project.client.name}}</span><span *ngIf="!purchase.style">NA</span></td>
                         <td>{{purchase.receiptNumber}}</td>
                         <td>{{purchase.sellerName}}</td>
                         <td>{{purchase.quantity}} {{purchase.unit.name}}</td>
                         <td>{{purchase.item.name}}</td>
-                        <td>{{purchase.item.price_per_unit}}</td>
+                        <td>{{purchase.price_per_unit}}</td>
                       </tr>
                     </tbody>
                 </table>

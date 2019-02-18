@@ -11,11 +11,11 @@
               <form action="" method="post" novalidate="novalidate">
                 <div class="row form-group">
                     <div class="col col-md-3">
-                    <label for="categories" class=" form-control-label">Project</label>
+                    <label for="categories" class=" form-control-label">Style-Project-Client</label>
                     </div>
                     <div class="col-12 col-md-9" >
-                    <select [(ngModel)]="item.project_id" name="item.project_id" class="form-control" *ngIf="projects" >
-                        <option *ngFor="let project of projects" value={{project.id}}>{{project.name}}</option>
+                    <select [(ngModel)]="item.style_id" name="item.style_id" class="form-control" *ngIf="styles" >
+                        <option *ngFor="let style of styles" value={{style.id}}>{{style.name}}-{{style.project.name}}-{{style.project.client.name}}</option>
                     </select>
                     </div>
                 </div>
@@ -66,6 +66,10 @@
                     <div class="form-group has-success">
                     <label for="cc-name" class="control-label mb-1">Price Per Unit</label>
                     <input class="form-control" type="number" [(ngModel)]="item.price_per_unit" name="item.price_per_unit">
+                    </div>
+                    <div class="form-group has-success">
+                    <label for="cc-name" class="control-label mb-1">Discount</label>
+                    <input class="form-control" type="number" [(ngModel)]="item.discount" name="item.discount">
                     </div>
                 <div class = row>
                     <div class= "col-md-4"></div>
