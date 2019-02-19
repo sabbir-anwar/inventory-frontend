@@ -14,10 +14,10 @@
                     <input class="form-control" type="text" [(ngModel)]="item.name" name="item.name">
                 </div>
                 <div class="row form-group">
-                  <div class="col col-md-3">
+                  <div class="col-md-3">
                   <label for="categories" class=" form-control-label">Assigned To</label>
                   </div>
-                  <div class="col-12 col-md-9" >
+                  <div class="col-md-9" >
                   <select [(ngModel)]="item.assigned_to" name="item.assigned_to" class="form-control" *ngIf="users" >
                       <option *ngFor="let user of users" value={{user.id}}>{{user.name}}</option>
                   </select>
