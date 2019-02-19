@@ -1,88 +1,95 @@
 <div class="modal-wrapper">
     <div class="modal-contain">
-       <div class="container">
-      <div class="card">
-          <div class="card-header text-center">Add Purchase</div>
-          <div class="card-body">
-              <div class="card-title">
-                  <h3 class="text-center title-2">Purchase</h3>
-              </div>
-              <hr>
-              <form action="" method="post" novalidate="novalidate">
-                <div class="row form-group">
-                    <div class="col col-md-3">
-                    <label for="categories" class=" form-control-label">Style-Project-Client</label>
+        <div class="container">
+            <div class="card">
+                <div class="card-header text-center">Add Purchase</div>
+                <div class="card-body">
+                    <div class="card-title">
+                        <h3 class="text-center title-2">Purchase</h3>
                     </div>
-                    <div class="col-12 col-md-9" >
-                    <select [(ngModel)]="item.style_id" name="item.style_id" class="form-control" *ngIf="styles" >
-                        <option *ngFor="let style of styles" value={{style.id}}>{{style.name}}-{{style.project.name}}-{{style.project.client.name}}</option>
-                    </select>
-                    </div>
+                    <form action="" method="post" novalidate="novalidate">
+                        <div class="row form-group">
+                            <div class="col-md-4">
+                                <label for="categories" class=" form-control-label">Style-Project-Client</label>
+                            </div>
+                            <div class="col-md-8" >
+                                <select [(ngModel)]="item.style_id" name="item.style_id" class="form-control" *ngIf="styles" >
+                                    <option *ngFor="let style of styles" value={{style.id}}>{{style.name}}-{{style.project.name}}-{{style.project.client.name}}</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row form-group">
+                            <div class="col-md-3">
+                            <label for="categories" class=" form-control-label">Item</label>
+                            </div>
+                            <div class="col-md-9" >
+                            <select [(ngModel)]="item.item_id" name="item.item_id" class="form-control" *ngIf="inventoryitems" >
+                                <option *ngFor="let inventoryitem of inventoryitems" value={{inventoryitem.id}}>{{inventoryitem.name}}</option>
+                            </select>
+                            </div>
+                        </div>
+                        <div class="row form-group">
+                            <div class="col-md-3">
+                                <label for="cc-payment" class="control-label mb-1">receiptNumber</label>
+                            </div>
+                            <div class="col-md-9">
+                                <input class="form-control" type="text" [(ngModel)]="item.receiptNumber" name="item.receiptNumber">
+                            </div>
+                        </div>
+                        <div class="row form-group">
+                            <div class="col-md-6">
+                                <label for="cc-name" class="control-label mb-1">Seller Name</label>
+                                <input class="form-control" type="text" [(ngModel)]="item.sellerName" name="item.sellerName">
+                            </div>
+                            <div class="col-md-6">
+                                <label for="cc-name" class="control-label mb-1">sellerAddress</label>
+                                <input class="form-control" type="text" [(ngModel)]="item.sellerAddress" name="item.sellerAddress">
+                            </div>
+                        </div>
+                        <div class="row form-group">
+                            <div class="col-md-6">
+                                <label for="cc-name" class="control-label mb-1">purchaseDate</label>
+                                <input class="form-control" type="date" [(ngModel)]="item.purchaseDate" name="item.purchaseDate">
+                            </div>
+                            <div class="col-md-6">
+                                <label for="cc-name" class="control-label mb-1">delivaryDate</label>
+                                <input class="form-control" type="date" [(ngModel)]="item.delivaryDate" name="item.delivaryDate">
+                            </div>
+                        </div>
+                        <div class="row form-group">
+                            <div class="col-md-6">
+                                <label for="cc-name" class="control-label mb-1">quantity</label>
+                                <input class="form-control" type="number" [(ngModel)]="item.quantity" name="item.quantity">
+                            </div>
+                            <div class="col col-md-6">
+                                <label for="categories" class=" form-control-label">Unit</label>
+                                <select [(ngModel)]="item.unit_id" name="item.unit_id" class="form-control" *ngIf="units" >
+                                    <option *ngFor="let unit of units" value={{unit.id}}>{{unit.name}}</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row form-group">
+                            <div class="col-md-6">
+                                <label for="cc-name" class="control-label mb-1">Price Per Unit</label>
+                                <input class="form-control" type="number" [(ngModel)]="item.price_per_unit" name="item.price_per_unit">
+                            </div>
+                            <div class="col-md-6">
+                                <label for="cc-name" class="control-label mb-1">Discount</label>
+                                <input class="form-control" type="number" [(ngModel)]="item.discount" name="item.discount">
+                            </div>
+                        </div>
+                        <div class = row>
+                            <div class= "col-md-4"></div>
+                            <div *ngIf="!lock" class="col-md-5">
+                                <button  class="btn btn-success" (click)="submit()">Submit</button>
+                                <button  class="btn btn-danger m-l-20" (click)="cancel()">Cancel</button> 
+                            </div>
+                            <div class="col-md-3"></div>
+                        </div>
+                    </form>
                 </div>
-                <div class="form-group">
-                    <label for="cc-payment" class="control-label mb-1">receiptNumber</label>
-                    <input class="form-control" type="text" [(ngModel)]="item.receiptNumber" name="item.receiptNumber">
-                </div>
-                <div class="form-group has-success">
-                    <label for="cc-name" class="control-label mb-1">Seller Name</label>
-                    <input class="form-control" type="text" [(ngModel)]="item.sellerName" name="item.sellerName">
-                </div>
-                <div class="form-group has-success">
-                    <label for="cc-name" class="control-label mb-1">sellerAddress</label>
-                    <input class="form-control" type="text" [(ngModel)]="item.sellerAddress" name="item.sellerAddress">
-                </div>
-                <div class="form-group has-success">
-                    <label for="cc-name" class="control-label mb-1">purchaseDate</label>
-                    <input class="form-control" type="date" [(ngModel)]="item.purchaseDate" name="item.purchaseDate">
-                </div>
-                <div class="form-group has-success">
-                    <label for="cc-name" class="control-label mb-1">delivaryDate</label>
-                    <input class="form-control" type="date" [(ngModel)]="item.delivaryDate" name="item.delivaryDate">
-                </div>
-                <div class="row form-group">
-                    <div class="col col-md-3">
-                    <label for="categories" class=" form-control-label">Unit</label>
-                    </div>
-                    <div class="col-12 col-md-9" >
-                    <select [(ngModel)]="item.unit_id" name="item.unit_id" class="form-control" *ngIf="units" >
-                        <option *ngFor="let unit of units" value={{unit.id}}>{{unit.name}}</option>
-                    </select>
-                    </div>
-                </div>
-                <div class="form-group has-success">
-                    <label for="cc-name" class="control-label mb-1">quantity</label>
-                    <input class="form-control" type="number" [(ngModel)]="item.quantity" name="item.quantity">
-                </div>
-                <div class="row form-group">
-                    <div class="col col-md-3">
-                    <label for="categories" class=" form-control-label">Item</label>
-                    </div>
-                    <div class="col-12 col-md-9" >
-                    <select [(ngModel)]="item.item_id" name="item.item_id" class="form-control" *ngIf="inventoryitems" >
-                        <option *ngFor="let inventoryitem of inventoryitems" value={{inventoryitem.id}}>{{inventoryitem.name}}</option>
-                    </select>
-                    </div>
-                </div>
-                    <div class="form-group has-success">
-                    <label for="cc-name" class="control-label mb-1">Price Per Unit</label>
-                    <input class="form-control" type="number" [(ngModel)]="item.price_per_unit" name="item.price_per_unit">
-                    </div>
-                    <div class="form-group has-success">
-                    <label for="cc-name" class="control-label mb-1">Discount</label>
-                    <input class="form-control" type="number" [(ngModel)]="item.discount" name="item.discount">
-                    </div>
-                <div class = row>
-                    <div class= "col-md-4"></div>
-                    <div *ngIf="!lock" class="col-md-5">
-                        <button  class="btn btn-success" (click)="submit()">Submit</button>
-                        <button  class="btn btn-danger m-l-20" (click)="cancel()">Cancel</button> 
-                    </div>
-                    <div class="col-md-3"></div>
-                </div>
-              </form>
-          </div>
-      </div>
-  </div>
-  </div>
-  </div>
+            </div>
+        </div>
+    </div>
+</div>
   
