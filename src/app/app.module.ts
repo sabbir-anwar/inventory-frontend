@@ -40,6 +40,7 @@ import { PurchasesComponent } from './purchases/purchases.component';
 import { PurchaseFormComponent } from './purchases/purchase-form/purchase-form.component';
 import { BookingDetailComponent } from './bookings/booking-detail/booking-detail.component';
 import { StoreDetailComponent } from './store/store-detail/store-detail.component';
+import { SmallLoadingComponent } from './_layout/small-loading/small-loading.component';
 
 
 const appRoutes:Routes=[
@@ -106,7 +107,8 @@ const appRoutes:Routes=[
     PurchasesComponent,
     PurchaseFormComponent,
     BookingDetailComponent,
-    StoreDetailComponent
+    StoreDetailComponent,
+    SmallLoadingComponent
   ],
   imports: [
     BrowserModule,

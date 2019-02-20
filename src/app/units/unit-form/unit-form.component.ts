@@ -18,6 +18,7 @@ export class UnitFormComponent implements OnInit {
     symbol:"",
     description:""
   }
+  showloading=false;
   constructor(private http:HttpClient,private router:Router) {
     let token=localStorage.getItem("token");
     let header= new HttpHeaders().append("Authorization","Bearer "+token);
@@ -39,6 +40,7 @@ export class UnitFormComponent implements OnInit {
   lock = false;
   submit(){
     this.lock = true;
+    this.showloading=true;
     if(this.item.name.length == 0||this.item.symbol.length == 0|| this.item.description.length==0) {
       return;
     }
@@ -48,11 +50,13 @@ export class UnitFormComponent implements OnInit {
       let headers= new HttpHeaders().append("Authorization","Bearer "+token);
       
       this.http.post(getHost()+"/api/units",this.item,{headers}).subscribe((res)=>{
+        this.showloading=false;
         this.sendMessageToParent(this);
         this.init();      
         // this.lock = false;
         
      },(error)=>{
+       this.showloading=false;
        if(error.status ==201)
        {
           this.sendMessageToParent(this);
