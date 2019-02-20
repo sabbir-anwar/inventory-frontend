@@ -9,9 +9,17 @@
             </div>
             <hr>
             <form action="" method="post" novalidate="novalidate">
-                <div class="form-group">
-                    <label for="cc-payment" class="control-label mb-1">Name</label>
-                    <input class="form-control" type="text" [(ngModel)]="item.name" name="item.name">
+                <div class="row form-group">
+                    <div class="col-md-6">
+                        <label for="cc-payment" class="control-label mb-1">Name</label>
+                        <input class="form-control" type="text" [(ngModel)]="item.name" name="item.name">
+                    </div>
+                    <div class="col-md-6">
+                        <label for="categories" class=" form-control-label">Select Category</label>
+                        <select [(ngModel)]="item.category_id" name="item.category_id" class="form-control" *ngIf="categories" >
+                            <option *ngFor="let category of categories" value={{category.id}}>{{category.name}}</option>
+                        </select>
+                    </div>
                 </div>
                 <div class="form-group has-success">
                     <label for="cc-name" class="control-label mb-1">Color code</label>
@@ -23,16 +31,6 @@
                     </div>
                     <div class="col-12 col-md-9">
                     <textarea [(ngModel)]="item.description" name="item.description" id="textarea-input" rows="9" placeholder="Content..." class="form-control"></textarea>
-                    </div>
-                </div>
-                <div class="row form-group">
-                    <div class="col col-md-3">
-                    <label for="categories" class=" form-control-label">Select Category</label>
-                    </div>
-                    <div class="col-12 col-md-9" >
-                    <select [(ngModel)]="item.category_id" name="item.category_id" class="form-control" *ngIf="categories" >
-                        <option *ngFor="let category of categories" value={{category.id}}>{{category.name}}</option>
-                    </select>
                     </div>
                 </div>
                 <div class="row form-group">

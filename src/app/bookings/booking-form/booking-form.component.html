@@ -9,53 +9,47 @@
             </div>
             <hr>
             <form action="" method="post" novalidate="novalidate">
-                <div class="form-group">
-                    <label for="cc-payment" class="control-label mb-1">Quantity</label>
-                    <input class="form-control" type="number" [(ngModel)]="item.quantity" name="item.quantity">
-                </div>
                 <div class="row form-group">
-                  <div class="col col-md-3">
-                  <label for="categories" class=" form-control-label">Unit</label>
-                  </div>
-                  <div class="col-12 col-md-9" >
-                  <select [(ngModel)]="item.unit_id" name="item.unit_id" class="form-control" *ngIf="units" >
-                      <option *ngFor="let unit of units" value={{unit.id}}>{{unit.name}}</option>
-                  </select>
-                  </div>
-                </div>
-                <div class="row form-group">
-                  <div class="col col-md-3">
-                  <label for="categories" class=" form-control-label">Item</label>
-                  </div>
-                  <div class="col-12 col-md-9" >
-                  <select [(ngModel)]="item.item_id" name="item.item_id" class="form-control" *ngIf="inventoryitems" >
-                      <option *ngFor="let inventoryitem of inventoryitems" value={{inventoryitem.id}}>{{inventoryitem.name}}</option>
-                  </select>
-                  </div>
-                </div>
-                <div class="row form-group">
-                  <div class="col col-md-3">
-                  <label for="categories" class=" form-control-label">Style</label>
-                  </div>
-                  <div class="col-12 col-md-9" >
-                  <select [(ngModel)]="item.style_id" name="item.style_id" class="form-control" *ngIf="styles" >
-                      <option *ngFor="let style of styles" value={{style.id}}>{{style.name}}</option>
-                  </select>
-                  </div>
-                </div>
-                <div class="form-group has-success">
-                  <label for="cc-name" class="control-label mb-1">Price Per Unit</label>
-                  <input class="form-control" type="number" [(ngModel)]="item.priceperunit" name="item.priceperunit">
-                </div>
-                <div class="form-group has-success">
-                  <label for="cc-name" class="control-label mb-1">Date</label>
-                  <input class="form-control" type="date" [(ngModel)]="item.date" name="item.date">
-                </div>
-                <div class="row form-group">
-                    <div class="col col-md-3">
-                    <label for="textarea-input" class=" form-control-label">Description</label>
+                    <div class="col-md-6">
+                        <label for="cc-payment" class="control-label mb-1">Quantity</label>
+                        <input class="form-control" type="number" [(ngModel)]="item.quantity" name="item.quantity" placeholder="Quantity">
                     </div>
-                    <div class="col-12 col-md-9">
+                    <div class="col-md-6">
+                            <label for="categories" class=" form-control-label">Unit</label>
+                            <select [(ngModel)]="item.unit_id" name="item.unit_id" class="form-control" *ngIf="units" >
+                                <option *ngFor="let unit of units" value={{unit.id}}>{{unit.name}}</option>
+                            </select>
+                    </div>
+                </div>
+                <div class="row form-group">
+                    <div class="col col-md-6">
+                        <label for="categories" class=" form-control-label">Item</label>
+                        <select [(ngModel)]="item.item_id" name="item.item_id" class="form-control" *ngIf="inventoryitems" >
+                            <option *ngFor="let inventoryitem of inventoryitems" value={{inventoryitem.id}}>{{inventoryitem.name}}</option>
+                        </select>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="categories" class=" form-control-label">Style</label>
+                        <select [(ngModel)]="item.style_id" name="item.style_id" class="form-control" *ngIf="styles" >
+                            <option *ngFor="let style of styles" value={{style.id}}>{{style.name}}</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row form-group">
+                    <div class="col-md-6">
+                        <label for="cc-name" class="control-label mb-1">Price Per Unit</label>
+                        <input class="form-control" type="number" [(ngModel)]="item.priceperunit" name="item.priceperunit">
+                    </div>
+                    <div class="col-md-6">
+                        <label for="cc-name" class="control-label mb-1">Date</label>
+                        <input class="form-control" type="date" [(ngModel)]="item.date" name="item.date">
+                    </div>
+                </div>
+                <div class="row form-group">
+                    <div class="col-md-3">
+                    <label for="textarea-input" class="form-control-label">Description</label>
+                    </div>
+                    <div class="col-md-9">
                     <textarea [(ngModel)]="item.description" name="item.description" id="textarea-input" rows="9" placeholder="Content..." class="form-control"></textarea>
                     </div>
                 </div>
