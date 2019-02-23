@@ -16,6 +16,7 @@ export class StoreFormComponent implements OnInit {
   locations=null;
   inventoryitems=null;
   units=null;
+  showloading=false;
   item={
     stage_id:"",
     location_id:"",
@@ -45,6 +46,7 @@ export class StoreFormComponent implements OnInit {
   submit()
   {
     this.lock = true;
+    this.showloading=true;
     console.log("checking------");
     console.log(this.item);
     if(this.item.stage_id.length == 0||this.item.location_id.length == 0|| this.item.item_id.length==0|| this.item.unit_id.length==0|| this.item.quantity.length==0) 
@@ -57,9 +59,11 @@ export class StoreFormComponent implements OnInit {
     let headers= new HttpHeaders().append("Authorization","Bearer "+token);
       
     this.http.post(getHost()+"/api/stores",this.item,{headers}).subscribe((res)=>{
+      this.showloading=false;
       this.sendMessageToParent(this);
       this.init();
     },(error)=>{
+      this.showloading=false;
        if(error.status ==201)
        {
           this.sendMessageToParent(this);
