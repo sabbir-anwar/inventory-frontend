@@ -15,6 +15,7 @@ export class BookingFormComponent implements OnInit {
   units=null;
   inventoryitems=null;
   styles=null; 
+  showloading=false;
   item={
     quantity:"",
     unit_id:"",
@@ -45,6 +46,7 @@ export class BookingFormComponent implements OnInit {
   lock = false;
   submit(){
     this.lock = true;
+    this.showloading=true;
     if(this.item.quantity.length == 0||this.item.unit_id.length == 0|| this.item.item_id.length==0 ||this.item.style_id.length == 0 ||this.item.priceperunit.length == 0||this.item.date.length == 0) {
       return;
     }
@@ -54,11 +56,13 @@ export class BookingFormComponent implements OnInit {
       let headers= new HttpHeaders().append("Authorization","Bearer "+token);
       
       this.http.post(getHost()+"/api/booking",this.item,{headers}).subscribe((res)=>{
+        this.showloading=false;
         this.sendMessageToParent(this);
         this.init();      
         // this.lock = false;
         
      },(error)=>{
+      this.showloading=false;
        if(error.status ==201)
        {
           this.sendMessageToParent(this);

@@ -15,6 +15,7 @@ export class PurchaseFormComponent implements OnInit {
   units=null;
   inventoryitems=null;
   styles=null;
+  showloading=false;
   item={
     style_id:"",
     receiptNumber:"",
@@ -49,6 +50,7 @@ export class PurchaseFormComponent implements OnInit {
   lock = false;
   submit(){
     this.lock = true;
+    this.showloading=true;
     if(this.item.style_id.length == 0||this.item.receiptNumber.length == 0||this.item.sellerName.length == 0|| this.item.sellerAddress.length==0 ||this.item.purchaseDate.length == 0 ||
       this.item.delivaryDate.length == 0||this.item.unit_id.length == 0||this.item.quantity.length == 0||this.item.item_id.length == 0||this.item.price_per_unit.length == 0) 
     {
@@ -60,11 +62,13 @@ export class PurchaseFormComponent implements OnInit {
       let headers= new HttpHeaders().append("Authorization","Bearer "+token);
       
       this.http.post(getHost()+"/api/purchases",this.item,{headers}).subscribe((res)=>{
+        this.showloading=false;
         this.sendMessageToParent(this);
         this.init();      
         // this.lock = false;
         
      },(error)=>{
+      this.showloading=false;
        if(error.status ==201)
        {
           this.sendMessageToParent(this);

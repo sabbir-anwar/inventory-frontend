@@ -13,6 +13,7 @@ export class LocationFormComponent implements OnInit {
   @Input() payhead:any;
   @Output() messageEvent=new EventEmitter<boolean>();
   locations=null;
+  showloading=false;
   item={
     name:"",
     address:""
@@ -38,6 +39,7 @@ export class LocationFormComponent implements OnInit {
   lock = false;
   submit(){
     this.lock = true;
+    this.showloading=true;
     if(this.item.name.length == 0||this.item.address.length == 0) {
       return;
     }
@@ -47,11 +49,13 @@ export class LocationFormComponent implements OnInit {
       let headers= new HttpHeaders().append("Authorization","Bearer "+token);
       
       this.http.post(getHost()+"/api/locations",this.item,{headers}).subscribe((res)=>{
+        this.showloading=false;
         this.sendMessageToParent(this);
         this.init();      
         // this.lock = false;
         
      },(error)=>{
+      this.showloading=false;
        if(error.status ==201)
        {
           this.sendMessageToParent(this);

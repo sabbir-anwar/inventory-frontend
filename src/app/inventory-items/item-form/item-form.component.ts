@@ -12,6 +12,7 @@ export class ItemFormComponent implements OnInit {
    @Input() payhead:any;
    @Output() messageEvent=new EventEmitter<boolean>();
   categories=null;
+  showloading=false;
   item={
     name:"",
     description:"",
@@ -46,6 +47,7 @@ export class ItemFormComponent implements OnInit {
   lock = false;  
   submit(){
     this.lock = true;
+    this.showloading=true;
     if(this.item.name.length == 0||this.item.color_code.length == 0|| this.item.description.length==0) {
       return;
     }
@@ -54,9 +56,11 @@ export class ItemFormComponent implements OnInit {
     let token=localStorage.getItem("token");
     let headers= new HttpHeaders().append("Authorization","Bearer "+token);
     this.http.post(getHost()+"/api/items",this.item,{headers}).subscribe((res)=>{
+      this.showloading=false;
       this.sendMessageToParent(this);
       this.init();
     },(error)=>{
+      this.showloading=false;
       if(error.status ==201)
       {
         this.sendMessageToParent(this);

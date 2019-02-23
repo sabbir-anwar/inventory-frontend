@@ -8,7 +8,7 @@
                 <h3 class="text-center title-2">Client</h3>
             </div>
             <hr>
-            <form action="" method="post" novalidate="novalidate">
+            <form action="" method="post" novalidate="novalidate" *ngIf="!showloading">
                 <div class="form-group">
                     <label for="cc-payment" class="control-label mb-1">Name</label>
                     <input class="form-control" type="text" [(ngModel)]="item.name" name="item.name">
@@ -48,6 +48,11 @@
                     <div class="col-md-3"></div>
                 </div>
             </form>
+            <div *ngIf="showloading" style="text-align:center">
+                <div style="display:block">
+                <app-small-loading></app-small-loading>
+                </div>
+            </div>
         </div>
     </div>
 </div>
