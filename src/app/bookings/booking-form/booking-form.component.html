@@ -10,6 +10,16 @@
             <hr>
             <form action="" method="post" novalidate="novalidate" *ngIf="!showloading">
                 <div class="row form-group">
+                    <div class="col-md-4">
+                        <label for="categories" class=" form-control-label">Style-Project-Buyer</label>
+                    </div>
+                    <div class="col-md-8" >
+                        <select [(ngModel)]="item.style_id" name="item.style_id" class="form-control" *ngIf="styles">
+                            <option *ngFor="let style of styles" value={{style.id}} >{{style.name}}-{{style.project.name}}-{{style.project.client.name}}</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row form-group">
                     <div class="col-md-6">
                         <label for="cc-payment" class="control-label mb-1">Quantity</label>
                         <input class="form-control" type="number" [(ngModel)]="item.quantity" name="item.quantity" placeholder="Quantity">
@@ -29,17 +39,11 @@
                         </select>
                     </div>
                     <div class="col-md-6">
-                        <label for="categories" class=" form-control-label">Style</label>
-                        <select [(ngModel)]="item.style_id" name="item.style_id" class="form-control" *ngIf="styles" >
-                            <option *ngFor="let style of styles" value={{style.id}}>{{style.name}}</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="row form-group">
-                    <div class="col-md-6">
                         <label for="cc-name" class="control-label mb-1">Price Per Unit</label>
                         <input class="form-control" type="number" [(ngModel)]="item.priceperunit" name="item.priceperunit">
                     </div>
+                </div>
+                <div class="row form-group">
                     <div class="col-md-6">
                         <label for="cc-name" class="control-label mb-1">Date</label>
                         <input class="form-control" type="date" [(ngModel)]="item.date" name="item.date">
