@@ -13,11 +13,19 @@ export class SiteSidebarComponent implements OnInit {
       link:'/dashboard'
     }*/
     {
-      name:'Inventory Items',
-      link:'/items'
+      name: 'Inventories',
+      link: '/inventories'
     },
     {
-      name: 'Client',
+      name:'Booking',
+      link: '/bookings'
+    },
+    {
+      name:'Purchase',
+      link: '/purchases'
+    },
+    {
+      name: 'Buyer',
       link: '/clients'
     },
     {
@@ -29,12 +37,16 @@ export class SiteSidebarComponent implements OnInit {
       link: '/styles'
     },
     {
-      name: 'Unit',
-      link: '/units'
+      name:'Inventory Items',
+      link:'/items'
     },
     {
       name: 'Category',
       link: '/categories'
+    },
+    {
+      name: 'Unit',
+      link: '/units'
     },
     {
       name: 'Location',
@@ -43,20 +55,8 @@ export class SiteSidebarComponent implements OnInit {
     {
       name: 'Stage',
       link: '/stage'
-    },
-    {
-      name: 'Inventories',
-      link: '/inventories'
-    },
-    {
-      name:'Booking',
-      link: '/bookings'
-    },
-    {
-      name:'Purchase',
-      link: '/purchases'
     }
-
+  
 ]
   constructor() { }
 
