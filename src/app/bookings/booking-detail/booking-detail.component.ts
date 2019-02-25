@@ -40,6 +40,12 @@ export class BookingDetailComponent implements OnInit {
     this.http.get(getHost()+"/hello",{headers:header}).subscribe((res)=>{
        console.log(res);
       // this.router.navigate(["dashboard"]);
+
+       
+
+
+
+
     },(err)=>{
        if(err.status==401)
        {
@@ -48,7 +54,28 @@ export class BookingDetailComponent implements OnInit {
       //this.router.navigate(["login"]); 
     });
    }
+  itemName="";
+  availibility_info=null;
+  total_available=0;
+  loadItemAvailibilityStatus()
+  {
+     let token=localStorage.getItem("token");
+     let header= new HttpHeaders().append("Authorization","Bearer "+token);
+     this.http.get(getHost()+"/api/stores/getby/store/all/"+this.itemName,{headers:header}).subscribe((res)=>{
+         console.log("data is ada");
+         console.log(res) 
+         this.availibility_info=res;
+        for(var c=0;c<this.availibility_info.length;c++)
+        {
+           this.total_available=this.total_available+this.availibility_info[c].quantity
 
+        } 
+
+
+
+
+      });
+  }
  
   url ="";
   ngOnInit() {
@@ -67,6 +94,8 @@ export class BookingDetailComponent implements OnInit {
     this.http.get(this.url,{headers:header}).subscribe((response)=>{
     console.log(response);
     this.details = response;
+    this.itemName=this.details.item.name
+    this.loadItemAvailibilityStatus()
     });
     this.loadStatus();
   }
