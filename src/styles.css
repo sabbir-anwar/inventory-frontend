@@ -3,7 +3,7 @@
 @import "~font-awesome/css/font-awesome.css";
 
 body{
-    background: #e6e6e6;
+    background: #f2f2f2;
     font-family: "Poppins", sans-serif;
     font-weight: 400;
     font-size: 14px;
@@ -417,7 +417,6 @@ a {
     background-color: #fff;
 }
 .table-common tbody td {
-    color: #808080;
     padding: 10px 40px;
     white-space: nowrap;
 }

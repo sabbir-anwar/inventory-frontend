@@ -44,14 +44,16 @@
       </div>
     </div>
   </div>
-  <div>
-    Total Inhoused Items: {{total_available}}
-     <div *ngFor="let item of availibility_info">
-       <div *ngIf="!item.quantity == 0">
-             PLace:{{item.location.name}}({{item.location.address}})
-             Quantity::{{item.quantity}}
-       </div>
-     </div>
+  <div class="row">
+    <div class="col-md-12">
+        <h4 class="m-b-5">Total Inhoused Items: {{total_available}}</h4>
+    </div>
+    <div class="col-md-12" *ngFor="let item of availibility_info">
+      <div *ngIf="!item.quantity == 0">
+          <h5 class="m-b-5">Quantity: {{item.quantity}}</h5>
+          <p>Place: {{item.location.name}} ({{item.location.address}})</p>
+      </div>
+    </div>
   </div>
   <div class="row form-group m-t-20">
     <div class="col-md-6">
