@@ -5,7 +5,7 @@
     </div>
     <nav class="navbar-sidebar">
       <ul class="navbar_list">
-        <li *ngFor="let item of menuItems"><a class="" href="#" routerLink={{item.link}}>{{item.name}}</a>
+        <li *ngFor="let item of menuItems"><a  *ngIf="available_menu_items && available_menu_items[item.varname]" class="" href="#" routerLink={{item.link}}>{{item.name}}</a>
         </li>
       </ul>
     </nav>
