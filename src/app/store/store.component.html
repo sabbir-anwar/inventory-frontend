@@ -28,7 +28,7 @@
               <div class="form-group" *ngIf="items">
                 <select class="form-control" id="sel1" [(ngModel)]="selectedItem" name="selectedItem">
                   <option value="all" selected>All</option>
-                  <option *ngFor="let s of items" value={{s.name}}>{{s.name}}-{{s.color_code}}</option>
+                  <option *ngFor="let s of items" value="{{s.name}}##${{s.color_code}}">{{s.name}}-{{s.color_code}}</option>
                 </select>
                 <label for="sel1">Select Item</label>
               </div> 

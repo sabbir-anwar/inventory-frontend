@@ -33,6 +33,7 @@ export class BookingDetailComponent implements OnInit {
   details:any;
   status:any;
   selectedstatus:any;
+  
   constructor(private http:HttpClient,private route:ActivatedRoute, private router:Router) {
     this.show = false;
     let token=localStorage.getItem("token");
@@ -55,13 +56,15 @@ export class BookingDetailComponent implements OnInit {
     });
    }
   itemName="";
+  colorCode="all";
   availibility_info=null;
   total_available=0;
   loadItemAvailibilityStatus()
   {
      let token=localStorage.getItem("token");
      let header= new HttpHeaders().append("Authorization","Bearer "+token);
-     this.http.get(getHost()+"/api/stores/getby/store/all/"+this.itemName,{headers:header}).subscribe((res)=>{
+     console.log(getHost()+"/api/stores/getby/store/all/"+this.itemName+"/"+this.colorCode);
+     this.http.get(getHost()+"/api/stores/getby/store/all/"+this.itemName+"/"+this.colorCode,{headers:header}).subscribe((res)=>{
          console.log("data is ada");
          console.log(res) 
          this.availibility_info=res;
@@ -89,12 +92,15 @@ export class BookingDetailComponent implements OnInit {
   loadData()
   {
     console.log("Inside loadData"+this.url);
+    
     let token=localStorage.getItem("token");
     let header= new HttpHeaders().append("Authorization","Bearer "+token);
     this.http.get(this.url,{headers:header}).subscribe((response)=>{
     console.log(response);
     this.details = response;
+    console.log("Details-----"+this.details);
     this.itemName=this.details.item.name
+    this.colorCode = this.details.item.color_code
     this.loadItemAvailibilityStatus()
     });
     this.loadStatus();

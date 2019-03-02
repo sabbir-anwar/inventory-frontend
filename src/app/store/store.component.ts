@@ -108,9 +108,17 @@ export class StoreComponent implements OnInit {
   } 
   loadInventories()
   {
+    console.log("sabbir");
+    console.log(this.selectedItem);
     let token=localStorage.getItem("token");
      let headers= new HttpHeaders().append("Authorization","Bearer "+token);
-     this.http.get(getHost()+"/api/stores/getby/"+this.selectedStage+"/"+this.selectedLocation+"/"+this.selectedItem,{headers}).subscribe((res)=>{
+     let colorCode = "all";
+     if (this.selectedItem!="all"){
+      colorCode = this.selectedItem.split("##$")[1]
+      this.selectedItem=this.selectedItem.split("##$")[0]
+     }
+     console.log(getHost()+"/api/stores/getby/"+this.selectedStage+"/"+this.selectedLocation+"/"+this.selectedItem+"/"+colorCode);
+     this.http.get(getHost()+"/api/stores/getby/"+this.selectedStage+"/"+this.selectedLocation+"/"+this.selectedItem+"/"+colorCode,{headers}).subscribe((res)=>{
        console.log("res");
        console.log(res); 
        this.stores=res;
@@ -155,7 +163,8 @@ export class StoreComponent implements OnInit {
        {
          this.router.navigate(["login"]);
        }
-     })  
+     })
+
   }
    loadItems()
   {
