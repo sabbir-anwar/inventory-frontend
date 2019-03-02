@@ -21,7 +21,7 @@ export class SiteSidebarComponent implements OnInit {
       varname:"InventoryItems"
     },
     {
-      name: 'Client',
+      name: 'Buyer',
       link: '/clients',
       varname:"buyer"
     },
@@ -39,7 +39,6 @@ export class SiteSidebarComponent implements OnInit {
       name: 'Unit',
       link: '/units',
       varname:"unit"
-
     },
     {
       name: 'Category',
@@ -71,7 +70,7 @@ export class SiteSidebarComponent implements OnInit {
       link: '/purchases',
       varname:"purchase"
     }
-
+  
 ]
    available_menu_items=null;
    constructor(private http:HttpClient) {
