@@ -5,7 +5,7 @@
     left: 0;
     top: 0;
     bottom: 0;
-    background: #253544;
+    background: #1cc88a;
     overflow-y: auto;
 }
 .menu-sidebar li{
@@ -23,7 +23,7 @@
     color: #fff;
 }
 .menu-sidebar .logo{
-    background: #25a25a;
+    background: #000;
     height: 56px;
     padding-left: 20px;
     padding-right: 15px;
@@ -54,6 +54,6 @@
     padding-left: 2rem;
 }
 .navbar-sidebar ul li:hover{
-    background: #4272d7;
+    background: #f6c23e;
 }
 
