@@ -16,9 +16,19 @@ export class SiteSidebarComponent implements OnInit {
       link:'/dashboard'
     }*/
     {
-      name:'Inventory Items',
-      link:'/items',
-      varname:"InventoryItems"
+      name:'Booking',
+      link: '/bookings',
+      varname:"booking"
+    },
+    {
+      name:'Purchase',
+      link: '/purchases',
+      varname:"purchase"
+    },
+    {
+      name: 'Inventories',
+      link: '/inventories',
+      varname:"inventory"
     },
     {
       name: 'Buyer',
@@ -36,9 +46,9 @@ export class SiteSidebarComponent implements OnInit {
       varname:"style"
     },
     {
-      name: 'Unit',
-      link: '/units',
-      varname:"unit"
+      name:'Inventory Items',
+      link:'/items',
+      varname:"InventoryItems"
     },
     {
       name: 'Category',
@@ -46,31 +56,20 @@ export class SiteSidebarComponent implements OnInit {
       varname:"category"
     },
     {
-      name: 'Location',
-      link: '/locations',
-      varname:"location"
-    },
-    {
       name: 'Stage',
       link: '/stage',
       varname:"stage"
     },
     {
-      name: 'Inventories',
-      link: '/inventories',
-      varname:"inventory"
+      name: 'Location',
+      link: '/locations',
+      varname:"location"
     },
     {
-      name:'Booking',
-      link: '/bookings',
-      varname:"booking"
-    },
-    {
-      name:'Purchase',
-      link: '/purchases',
-      varname:"purchase"
-    }
-  
+      name: 'Unit',
+      link: '/units',
+      varname:"unit"
+    } 
 ]
    available_menu_items=null;
    constructor(private http:HttpClient) {

@@ -26,7 +26,7 @@ export class LoginComponent implements OnInit {
       let d:any=data;
       localStorage.setItem("token",d.accessToken);
       this.message=""
-      this.router.navigate(["dashboard"]);
+      this.router.navigate(["bookings"]);
       
     },(err)=>{
        console.log(err);

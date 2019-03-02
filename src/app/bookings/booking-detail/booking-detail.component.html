@@ -1,6 +1,6 @@
 <div class="container-fluid main-content">
   <div class="row">
-    <h2 class="title-1 m-b-25 m-l-15">booking Request</h2>
+    <h2 class="title-1 m-b-25 m-l-15">Booking Request</h2>
     <div class="col-md-12" *ngIf="details">
       <div class="table-responsive table--no-card m-b-10">
           <table class="table-detail">
@@ -9,20 +9,20 @@
                 <td class="table-70">{{details.cratedBy}}</td>
               </tr>
               <tr>
-                <td>Style-Project-Buyer</td>
-                <td>{{details.style.name}} - {{details.style.project.name}} - {{details.style.project.client.name}}</td>
+                <td>Buyer-Project-Style</td>
+                <td>{{details.style.project.client.name}}-{{details.style.project.name}}-{{details.style.name}}</td>
               </tr>
               <tr>
                 <td>Item Name</td>
                 <td>{{details.item.name}}</td>
               </tr>
               <tr>
-                <td>Item Description</td>
-                <td>{{details.item.description}}</td>
+                <td>Item Extra</td>
+                <td>{{details.item.color_code}}</td>
               </tr>
               <tr>
-                <td>Item Color Code</td>
-                <td>{{details.item.color_code}}</td>
+                <td>Item Description</td>
+                <td>{{details.item.description}}</td>
               </tr>
               <tr>
                 <td>Quantity</td>

@@ -28,7 +28,7 @@
               <div class="form-group" *ngIf="items">
                 <select class="form-control" id="sel1" [(ngModel)]="selectedItem" name="selectedItem">
                   <option value="all" selected>All</option>
-                  <option *ngFor="let s of items" value={{s.name}}>{{s.name}}</option>
+                  <option *ngFor="let s of items" value={{s.name}}>{{s.name}}-{{s.color_code}}</option>
                 </select>
                 <label for="sel1">Select Item</label>
               </div> 
@@ -61,7 +61,7 @@
                       <td scope="row">{{i+1}}</td>
                       <td>{{store.stage.name}}</td>
                       <td>{{store.location.name}}</td>
-                      <td>{{store.item.name}}</td>
+                      <td>{{store.item.name}}-{{store.item.color_code}}</td>
                       <td>{{store.quantity}} {{store.unit.symbol}}</td>
                       <td><button class="btn btn-outline-info btn-xs m-r-5 detail-btn" data-toggle="tooltip" data-original-title="Edit" (click)="seeDetailView(store)"><i class="fa fa-pencil font-14"></i></button></td>
                     </tr>
