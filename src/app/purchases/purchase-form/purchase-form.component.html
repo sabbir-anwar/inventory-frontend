@@ -10,11 +10,11 @@
                     <form action="" method="post" novalidate="novalidate" *ngIf="!showloading">
                         <div class="row form-group">
                             <div class="col-md-4">
-                                <label for="categories" class=" form-control-label">Style-Project-Buyer</label>
+                                <label for="categories" class=" form-control-label">Buyer-Project-Style</label>
                             </div>
                             <div class="col-md-8" >
                                 <select [(ngModel)]="item.style_id" name="item.style_id" class="form-control" *ngIf="styles">
-                                    <option *ngFor="let style of styles" value={{style.id}} >{{style.name}}-{{style.project.name}}-{{style.project.client.name}}</option>
+                                    <option *ngFor="let style of styles" value={{style.id}} >{{style.project.client.name}}-{{style.project.name}}-{{style.name}}</option>
                                 </select>
                             </div>
                         </div>
@@ -24,13 +24,13 @@
                             </div>
                             <div class="col-md-9" >
                             <select [(ngModel)]="item.item_id" name="item.item_id" class="form-control" *ngIf="inventoryitems" >
-                                <option *ngFor="let inventoryitem of inventoryitems" value={{inventoryitem.id}}>{{inventoryitem.name}}</option>
+                                <option *ngFor="let inventoryitem of inventoryitems" value={{inventoryitem.id}}>{{inventoryitem.name}}-{{inventoryitem.color_code}}</option>
                             </select>
                             </div>
                         </div>
                         <div class="row form-group">
                             <div class="col-md-3">
-                                <label for="cc-payment" class="control-label mb-1">receiptNumber</label>
+                                <label for="cc-payment" class="control-label mb-1">Receipt Number</label>
                             </div>
                             <div class="col-md-9">
                                 <input class="form-control" type="text" [(ngModel)]="item.receiptNumber" name="item.receiptNumber">
@@ -42,23 +42,23 @@
                                 <input class="form-control" type="text" [(ngModel)]="item.sellerName" name="item.sellerName">
                             </div>
                             <div class="col-md-6">
-                                <label for="cc-name" class="control-label mb-1">sellerAddress</label>
+                                <label for="cc-name" class="control-label mb-1">Seller Address</label>
                                 <input class="form-control" type="text" [(ngModel)]="item.sellerAddress" name="item.sellerAddress">
                             </div>
                         </div>
                         <div class="row form-group">
                             <div class="col-md-6">
-                                <label for="cc-name" class="control-label mb-1">purchaseDate</label>
+                                <label for="cc-name" class="control-label mb-1">Purchase Date</label>
                                 <input class="form-control" type="date" [(ngModel)]="item.purchaseDate" name="item.purchaseDate">
                             </div>
                             <div class="col-md-6">
-                                <label for="cc-name" class="control-label mb-1">delivaryDate</label>
+                                <label for="cc-name" class="control-label mb-1">Delivary Date</label>
                                 <input class="form-control" type="date" [(ngModel)]="item.delivaryDate" name="item.delivaryDate">
                             </div>
                         </div>
                         <div class="row form-group">
                             <div class="col-md-6">
-                                <label for="cc-name" class="control-label mb-1">quantity</label>
+                                <label for="cc-name" class="control-label mb-1">Quantity</label>
                                 <input class="form-control" type="number" [(ngModel)]="item.quantity" name="item.quantity">
                             </div>
                             <div class="col col-md-6">

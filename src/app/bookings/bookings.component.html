@@ -13,9 +13,9 @@
                   <thead>
                       <tr>
                         <th>#</th>
-                        <th>Quantity</th>
+                        <th>Buyer-Project-Style</th>
                         <th>Item</th>
-                        <th>Style</th>
+                        <th>Quantity</th>
                         <th>Status</th>
                         <th>Detail View</th>
                       </tr>
@@ -23,9 +23,9 @@
                   <tbody>
                     <tr *ngFor="let booking of bookings; index as i">
                       <td scope="row">{{i+1}}</td>
-                      <td>{{booking.quantity}} {{booking.unit.symbol}}</td>
+                      <td>{{booking.style.project.client.name}}-{{booking.style.project.name}}-{{booking.style.name}}</td>
                       <td>{{booking.item.name}}</td>
-                      <td>{{booking.style.name}}</td>
+                      <td>{{booking.quantity}} {{booking.unit.symbol}}</td>
                       <td>{{booking.status}}</td>
                       <td><button class="btn btn-outline-info btn-xs m-r-5 detail-btn" data-toggle="tooltip" data-original-title="Edit" (click)="seeDetailView(booking)"><i class="fa fa-pencil font-14"></i></button></td>
                     </tr>
