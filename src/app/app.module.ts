@@ -66,7 +66,9 @@ const appRoutes:Routes=[
           {path: 'stores/:id', component: StoreDetailComponent},
           { path: 'bookings', component: BookingsComponent},
           { path: 'bookings/:id', component: BookingDetailComponent},
-          {path: 'purchases', component: PurchasesComponent}
+          {path: 'purchases', component: PurchasesComponent},
+          {path: 'summary', component: SummaryComponent},
+          {path: 'summary/:id', component: SummaryDetailComponent}
         ]
   },
   {

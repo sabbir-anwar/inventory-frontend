@@ -16,6 +16,11 @@ export class SiteSidebarComponent implements OnInit {
       link:'/dashboard'
     }*/
     {
+      name:'Summary',
+      link: '/summary',
+      varname:"summary"
+    },
+    {
       name:'Booking',
       link: '/bookings',
       varname:"booking"
