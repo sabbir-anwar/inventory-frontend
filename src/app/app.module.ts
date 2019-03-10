@@ -41,6 +41,8 @@ import { PurchaseFormComponent } from './purchases/purchase-form/purchase-form.c
 import { BookingDetailComponent } from './bookings/booking-detail/booking-detail.component';
 import { StoreDetailComponent } from './store/store-detail/store-detail.component';
 import { SmallLoadingComponent } from './_layout/small-loading/small-loading.component';
+import { SummaryComponent } from './summary/summary.component';
+import { SummaryDetailComponent } from './summary/summary-detail/summary-detail.component';
 
 
 const appRoutes:Routes=[
@@ -108,7 +110,9 @@ const appRoutes:Routes=[
     PurchaseFormComponent,
     BookingDetailComponent,
     StoreDetailComponent,
-    SmallLoadingComponent
+    SmallLoadingComponent,
+    SummaryComponent,
+    SummaryDetailComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,58 @@
+<div class="container-fluid main-content">
+  <div class="row">
+    <h2 class="title-1 m-b-25 m-l-15">Summary Item Detail</h2>
+    <div class="col-md-12" *ngIf="details">
+      <div class="table-responsive table--no-card m-b-10">
+          <table class="table-detail">
+              <tr>
+                <td class="table-30">Requested By</td>
+                <td class="table-70">{{details.cratedBy}}</td>
+              </tr>
+              <tr>
+                <td>Buyer-Project-Style</td>
+                <td>{{details.style.project.client.name}}-{{details.style.project.name}}-{{details.style.name}}</td>
+              </tr>
+              <tr>
+                <td>Item Name</td>
+                <td>{{details.item.name}}</td>
+              </tr>
+              <tr>
+                <td>Item Extra</td>
+                <td>{{details.item.color_code}}</td>
+              </tr>
+              <tr>
+                <td>Item Description</td>
+                <td>{{details.item.description}}</td>
+              </tr>
+              <tr>
+                <td>Quantity</td>
+                <td>{{details.quantity}} {{details.unit.symbol}}</td>
+              </tr>
+              <tr>
+                <td>Price Per Unit</td>
+                <td>{{details.priceperunit}}</td>
+              </tr>
+              <tr>
+                <td>Date</td>
+                <td>{{details.date}}</td>
+              </tr>
+              <tr>
+                <td>Description</td>
+                <td>{{details.description}}</td>
+              </tr>
+            </table>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+        <h4 class="m-b-5">Total Inhoused Items: {{total_available}}</h4>
+    </div>
+    <div class="col-md-12" *ngFor="let item of availibility_info">
+      <div *ngIf="!item.quantity == 0">
+          <h5 class="m-b-5">Quantity: {{item.quantity}}</h5>
+          <p>Place: {{item.location.name}} ({{item.location.address}})</p>
+      </div>
+    </div>
+  </div>
+</div>
