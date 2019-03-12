@@ -3,8 +3,25 @@
       <div class="col-md-4">
           <h3 class="title-1 m-b-10">Summary</h3>
       </div>
-      <div class="col-md-4"></div>
-      <div class = "col-md-4"></div>
+      <!--filter starts here-->
+      <div class="col-md-6">
+        <div class="row">
+          <div class="col-md-3">
+             <div class="form-group" *ngIf="stages">
+               <select class="form-control" id="sel1" [(ngModel)]="selectedStage" name="selectedStage">
+                 <option value="all" selected>All</option>
+                 <option *ngFor="let s of stages" value={{s.name}}>{{s.name}}</option>
+               </select>
+               <label for="sel1">Select Stage</label>
+             </div> 
+          </div>
+          <div class="col-md-3">
+             <button class="btn btn-primary right-float" (click)="loadInventories()"><i class="fas fa-plus"></i>Apply Filter</button>
+          </div>
+        </div>
+     </div>
+     <!--filter ends here-->
+     <div class="col-md-2"></div>
     <div class="col-md-12">
           <div class="table-responsive table--no-card m-b-40">
               <table class="table table-borderless table-striped table-common">
