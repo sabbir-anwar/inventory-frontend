@@ -2,12 +2,11 @@
   <div class="modal-contain">
      <div class="container">
     <div class="card">
-        <div class="card-header text-center">Add booking</div>
+        <div class="card-header text-center">Add Booking</div>
         <div class="card-body">
             <div class="card-title">
-                <h3 class="text-center title-2">booking</h3>
+                <h3 class="text-center title-2">Booking</h3>
             </div>
-            <hr>
             <form action="" method="post" novalidate="novalidate" *ngIf="!showloading">
                 <div class="row form-group">
                     <div class="col-md-4">
@@ -27,7 +26,7 @@
                         </select>
                     </div>
                     <div class="col-md-6">
-                        <label for="cc-name" class="control-label mb-1">Price Per Unit</label>
+                        <label for="cc-name" class="control-label mb-1">Estimated Price Per Unit</label>
                         <input class="form-control" type="number" [(ngModel)]="item.priceperunit" name="item.priceperunit">
                     </div>
                 </div>
@@ -45,8 +44,12 @@
                 </div>
                 <div class="row form-group">
                     <div class="col-md-6">
-                        <label for="cc-name" class="control-label mb-1">Date</label>
+                        <label for="cc-name" class="control-label mb-1">Estimated Date</label>
                         <input class="form-control" type="date" [(ngModel)]="item.date" name="item.date">
+                    </div>
+                    <div class="col-md-6">
+                        <label for="cc-name" class="control-label mb-1">From</label>
+                        <input class="form-control" type="text" [(ngModel)]="item.extra" name="item.extra">
                     </div>
                 </div>
                 <div class="row form-group">

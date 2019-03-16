@@ -29,23 +29,25 @@ export class SummaryComponent implements OnInit {
 
   bookings = null;
   show = false;
+  styles=null;
+  selectedStyle="";
   constructor(private http:HttpClient,private router:Router) {
 
     let token=localStorage.getItem("token");
-   let header= new HttpHeaders().append("Authorization","Bearer "+token);
-   this.http.get(getHost()+"/hello",{headers:header}).subscribe((res)=>{
-      console.log(res);
-     // this.router.navigate(["dashboard"]);
+    let header= new HttpHeaders().append("Authorization","Bearer "+token);
+    this.http.get(getHost()+"/hello",{headers:header}).subscribe((res)=>{
+        console.log(res);
+      // this.router.navigate(["dashboard"]);
 
-   },(err)=>{
-      console.log(err.status);
-      if(err.status==401)
-      {
-        this.router.navigate(["login"]); 
-      }
+    },(err)=>{
+        console.log(err.status);
+        if(err.status==401)
+        {
+          this.router.navigate(["login"]); 
+        }
 
-     //this.router.navigate(["login"]); 
-   });
+      //this.router.navigate(["login"]); 
+    });
 
   }
 
@@ -89,12 +91,36 @@ export class SummaryComponent implements OnInit {
   }
   init()
   {
-     let token=localStorage.getItem("token");
+     this.selectedStyle="";
+     this.loadStyle();
+    //  this.loadSummary();
+       
+  }
+  // Load Summary
+  loadSummary(){
+    let token=localStorage.getItem("token");
+    let headers= new HttpHeaders().append("Authorization","Bearer "+token);
+    this.http.get(getHost()+"/api/booking/style/"+this.selectedStyle+"/",{headers}).subscribe((res)=>{
+      console.log("Load summarry -------");
+      console.log(res); 
+      this.bookings=res;
+    },(err)=>{
+      console.log("error")
+      console.log(err)
+      if(err.status == 401)
+      {
+        this.router.navigate(["login"]);
+      }
+    })
+  }
+  // Loading Style data
+  loadStyle(){
+    let token=localStorage.getItem("token");
      let headers= new HttpHeaders().append("Authorization","Bearer "+token);
-     this.http.get(getHost()+"/api/booking",{headers}).subscribe((res)=>{
+     this.http.get(getHost()+"/api/styles",{headers}).subscribe((res)=>{
        console.log("res");
        console.log(res); 
-       this.bookings=res;
+       this.styles=res;
      },(err)=>{
        console.log("error")
        console.log(err)
@@ -102,7 +128,8 @@ export class SummaryComponent implements OnInit {
        {
          this.router.navigate(["login"]);
        }
-     })  
+     })
   }
+
 
 }
