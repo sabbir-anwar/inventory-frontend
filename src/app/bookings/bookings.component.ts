@@ -29,6 +29,8 @@ export class BookingsComponent implements OnInit {
 
   bookings = null;
   show = false;
+  styles=null;
+  selectedStyle="";
   constructor(private http:HttpClient,private router:Router) {
 
     let token=localStorage.getItem("token");
@@ -102,7 +104,42 @@ export class BookingsComponent implements OnInit {
        {
          this.router.navigate(["login"]);
        }
-     })  
+     }) 
+     
+     this.selectedStyle="";
+     this.loadStyle();
+  }
+  loadStyle(){
+    let token=localStorage.getItem("token");
+    let headers= new HttpHeaders().append("Authorization","Bearer "+token);
+    this.http.get(getHost()+"/api/styles",{headers}).subscribe((res)=>{
+      console.log("res");
+      console.log(res); 
+      this.styles=res;
+    },(err)=>{
+      console.log("error")
+      console.log(err)
+      if(err.status == 401)
+      {
+        this.router.navigate(["login"]);
+      }
+    })
+  }
+  loadData(){
+    let token=localStorage.getItem("token");
+    let headers= new HttpHeaders().append("Authorization","Bearer "+token);
+    this.http.get(getHost()+"/api/booking/style/"+this.selectedStyle+"/",{headers}).subscribe((res)=>{
+      console.log("Load summarry -------");
+      console.log(res); 
+      this.bookings=res;
+    },(err)=>{
+      console.log("error")
+      console.log(err)
+      if(err.status == 401)
+      {
+        this.router.navigate(["login"]);
+      }
+    })
   }
 
 }
