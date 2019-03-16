@@ -61,7 +61,7 @@ export class SummaryComponent implements OnInit {
     let id=booking.id;
     console.log("seedetailview"+booking);
     console.log(booking);
-    this.router.navigate(["/bookings",id]);
+    this.router.navigate(["/summary",id]);
   }
   addNew()
   {
