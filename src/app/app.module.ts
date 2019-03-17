@@ -43,6 +43,7 @@ import { StoreDetailComponent } from './store/store-detail/store-detail.componen
 import { SmallLoadingComponent } from './_layout/small-loading/small-loading.component';
 import { SummaryComponent } from './summary/summary.component';
 import { SummaryDetailComponent } from './summary/summary-detail/summary-detail.component';
+import { PdftestComponent } from './pdftest/pdftest.component';
 
 
 const appRoutes:Routes=[
@@ -114,7 +115,8 @@ const appRoutes:Routes=[
     StoreDetailComponent,
     SmallLoadingComponent,
     SummaryComponent,
-    SummaryDetailComponent
+    SummaryDetailComponent,
+    PdftestComponent
   ],
   imports: [
     BrowserModule,
