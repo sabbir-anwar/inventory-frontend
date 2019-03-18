@@ -25,7 +25,7 @@
       </div>
     <div class="col-md-12">
           <div class="table-responsive table--no-card m-b-40">
-              <table class="table table-borderless table-striped table-common">
+              <table class="table table-common">
                   <thead>
                       <tr>
                         <th>#</th>
@@ -37,7 +37,7 @@
                       </tr>
                   </thead>
                   <tbody>
-                    <tr *ngFor="let booking of bookings; index as i">
+                    <tr *ngFor="let booking of bookings; index as i" [ngClass]="{'color-red': booking.status == 'Processing', 'color-green' : booking.status == 'In-housed'}">
                       <td scope="row">{{i+1}}</td>
                       <td>{{booking.style.project.client.name}}-{{booking.style.project.name}}-{{booking.style.name}}</td>
                       <td>{{booking.item.name}}</td>
@@ -55,3 +55,4 @@
 <div [@popOverState]="stateName" (@popOverState.done) = "TriggerEvent($event)">     
   <app-booking-form  (messageEvent)="receiveMessage($event)"></app-booking-form>
 </div>
+

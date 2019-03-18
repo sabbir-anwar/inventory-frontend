@@ -32,6 +32,7 @@ export class SummaryComponent implements OnInit {
   bookings = null;
   show = false;
   styles=null;
+  status:any;
   selectedStyle="";
   constructor(private http:HttpClient,private router:Router) {
 
@@ -131,6 +132,17 @@ export class SummaryComponent implements OnInit {
          this.router.navigate(["login"]);
        }
      })
+  }
+  loadStatus(){
+    let token=localStorage.getItem("token");
+    let headers= new HttpHeaders().append("Authorization","Bearer "+token);
+
+    this.http.get(getHost()+"/api/booking/avalilablestatus/",{headers}).subscribe((res)=>{
+      this.status=res; 
+      console.log(status);
+    },(err)=>{
+    console.log(err);  
+    })
   }
   public captureScreen()  
   {  

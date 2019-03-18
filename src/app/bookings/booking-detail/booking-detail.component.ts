@@ -41,12 +41,6 @@ export class BookingDetailComponent implements OnInit {
     this.http.get(getHost()+"/hello",{headers:header}).subscribe((res)=>{
        console.log(res);
       // this.router.navigate(["dashboard"]);
-
-       
-
-
-
-
     },(err)=>{
        if(err.status==401)
        {
@@ -73,10 +67,6 @@ export class BookingDetailComponent implements OnInit {
            this.total_available=this.total_available+this.availibility_info[c].quantity
 
         } 
-
-
-
-
       });
   }
  
