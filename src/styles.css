@@ -463,3 +463,13 @@ a {
 .table-70{
     width: 70%;
 }
+
+.btn-outline-info{
+    color: #000;
+    border-color: #000;
+}
+.btn-outline-info:hover {
+    color: #fff;
+    background-color: #000;
+    border-color: #000;
+}
