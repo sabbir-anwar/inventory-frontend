@@ -50,15 +50,12 @@
       </div>
       <div class="row">
           <div class="col-md-6">
-              <h3>Approval Status</h3>
               <div class="row m-t-15">
-                  <div class="col-md-6">
-                      <select [(ngModel)]="selectedstatus" name="selectedstatus" class="form-control" *ngIf="status" >
-                          <option *ngFor="let s of status" value={{s}}>{{s}}</option>
-                      </select>
+                  <div class="col-md-2">
+                    <button class="btn btn-success btn-blocks" (click)="submitApprove()">Approved</button>
                   </div>
                   <div class="col-md-6">
-                    <button class="btn btn-success btn-blocks" (click)="submitStatus()">Submit</button>
+                    <button class="btn btn-danger btn-blocks" (click)="submitDecline()">Declined</button>
                   </div>
               </div>
           </div>
