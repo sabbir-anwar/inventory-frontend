@@ -9,8 +9,16 @@
                 <td class="table-70">{{details.cratedBy}}</td>
               </tr>
               <tr>
-                <td>Buyer-Project-Style</td>
-                <td>{{details.style.project.client.name}}-{{details.style.project.name}}-{{details.style.name}}</td>
+                <td>Buyer Name</td>
+                <td>{{details.style.project.client.name}}</td>
+              </tr>
+              <tr>
+                <td>Project Name</td>
+                <td>{{details.style.project.name}}</td>
+              </tr>
+              <tr>
+                <td>Style Name</td>
+                <td>{{details.style.name}}</td>
               </tr>
               <tr>
                 <td>Item Name</td>
@@ -25,15 +33,27 @@
                 <td>{{details.item.description}}</td>
               </tr>
               <tr>
+                <td>From</td>
+                <td>{{details.extra}}</td>
+              </tr>
+              <tr>
                 <td>Quantity</td>
                 <td>{{details.quantity}} {{details.unit.symbol}}</td>
+              </tr>
+              <tr>
+                <td>Estimated Available Items in Store</td>
+                <td>{{total_available}} {{details.unit.symbol}}</td>
               </tr>
               <tr>
                 <td>Estimated Price Per Unit</td>
                 <td>{{details.priceperunit}}</td>
               </tr>
               <tr>
-                <td>Estimated Date</td>
+                <td>Final Price</td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>Estimated In-House Date</td>
                 <td>{{details.date}}</td>
               </tr>
               <tr>
