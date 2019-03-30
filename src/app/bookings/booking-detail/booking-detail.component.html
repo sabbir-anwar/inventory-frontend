@@ -1,6 +1,8 @@
 <div class="container-fluid main-content">
   <div class="row">
     <h2 class="title-1 m-b-25 m-l-15">Booking Request</h2>
+    
+     
     <div class="col-md-12" *ngIf="details">
       <div class="table-responsive table--no-card m-b-10">
           <table class="table-detail">
@@ -81,6 +83,86 @@
             </div>
         </div>
     </div>
-    <div class="col-md-6"></div>
+    <div class="col-md-6">
+       
+    </div>
+    
   </div>
+  <div >
+            <button class="btn btn-primary" (click)="captureScreen()" >Download PDF</button>
+    </div>
+</div>
+
+
+<div style="opacity:0;" *ngIf="isPrintEnable">
+<div class="container" id="contentToConvert" style="font-size:25px;padding:100px;">
+  <h2 style="text-align:center; margin-bottom:50px;">Knit Garden</h2>
+  <div>
+    <table class="table-detail">
+              <tr>
+                <td class="table-30">Requested By</td>
+                <td class="table-70">{{details.cratedBy}}</td>
+              </tr>
+              <tr>
+                <td>Buyer Name</td>
+                <td>{{details.style.project.client.name}}</td>
+              </tr>
+              <tr>
+                <td>Project Name</td>
+                <td>{{details.style.project.name}}</td>
+              </tr>
+              <tr>
+                <td>Style Name</td>
+                <td>{{details.style.name}}</td>
+              </tr>
+              <tr>
+                <td>Item Name</td>
+                <td>{{details.item.name}}</td>
+              </tr>
+              <tr>
+                <td>Item Extra</td>
+                <td>{{details.item.color_code}}</td>
+              </tr>
+              <tr>
+                <td>Item Description</td>
+                <td>{{details.item.description}}</td>
+              </tr>
+              <tr>
+                <td>From</td>
+                <td>{{details.extra}}</td>
+              </tr>
+              <tr>
+                <td>Quantity</td>
+                <td>{{details.quantity}} {{details.unit.symbol}}</td>
+              </tr>
+              <tr>
+                <td>Estimated Price Per Unit</td>
+                <td>{{details.priceperunit}}</td>
+              </tr>
+              <tr>
+                <td>Estimated In-House Date</td>
+                <td>{{details.date}}</td>
+              </tr>
+              <tr>
+                <td>Description</td>
+                <td>{{details.description}}</td>
+              </tr>
+            </table>
+
+  </div>
+  <div style="margin-top:30px; background-color:white;padding:10px;">
+    <div class="row" >
+    <div class="col-md-12" style="margin-bottom:20px;">
+        <h3 class="m-b-5">Total Inhoused Items: <span style="color:red">{{total_available}}</span> {{details.unit.symbol}}</h3>
+    </div>
+    <div class="col-md-12" *ngFor="let item of availibility_info" >
+      <div *ngIf="!item.quantity == 0" style="margin-bottom:20px;">
+          <div>Location: {{item.location.name}} ({{item.location.address}})</div>
+          <div class="m-b-5">Quantity: <span style="color:red">{{item.quantity}}</span> {{details.unit.symbol}}</div>
+          
+      </div>
+    </div>
+  </div>
+  </div>
+</div> 
 </div>
