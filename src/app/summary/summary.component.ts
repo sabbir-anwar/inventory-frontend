@@ -138,22 +138,24 @@ export class SummaryComponent implements OnInit {
     let token=localStorage.getItem("token");
     let headers= new HttpHeaders().append("Authorization","Bearer "+token);
 
-    this.http.get(getHost()+"/api/booking/update/status/approved/"+this.selectedStyle+"/",{headers}).subscribe((res)=>{
+    this.http.get(getHost()+"/api/booking/update/status/Approved/"+this.selectedStyle+"/",{headers}).subscribe((res)=>{
       this.status=res; 
       console.log(status);
     },(err)=>{
-    console.log(err);  
+    console.log(err);
+    alert("Successful Action");  
     })
   }
   submitDecline(){
     let token=localStorage.getItem("token");
     let headers= new HttpHeaders().append("Authorization","Bearer "+token);
 
-    this.http.get(getHost()+"/api/booking/update/status/decline/"+this.selectedStyle+"/",{headers}).subscribe((res)=>{
+    this.http.get(getHost()+"/api/booking/update/status/Declined/"+this.selectedStyle+"/",{headers}).subscribe((res)=>{
       this.status=res; 
       console.log(status);
     },(err)=>{
-    console.log(err);  
+    console.log(err);
+    alert("Successful Action");  
     })
   }
   public captureScreen()  

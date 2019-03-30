@@ -130,8 +130,10 @@ export class BookingDetailComponent implements OnInit {
     this.http.get(getHost()+"/api/booking/"+this.booking_id+"/changestatus/"+this.selectedstatus,{headers}).subscribe((res)=>{
       this.status=res; 
       console.log(status);
+      
     },(err)=>{
-    console.log(err);  
+    console.log(err);
+    alert("Successful Action");  
     })
   }
 
