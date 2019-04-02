@@ -25,9 +25,16 @@
                             <option *ngFor="let inventoryitem of inventoryitems" value={{inventoryitem.id}}>{{inventoryitem.name}}-{{inventoryitem.color_code}}</option>
                         </select>
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-md-4">
                         <label for="cc-name" class="control-label mb-1">Estimated Price Per Unit</label>
                         <input class="form-control" type="number" [(ngModel)]="item.priceperunit" name="item.priceperunit">
+                    </div>
+                    <div class="col-md-2">
+                        <label for="">Currency</label>
+                        <select [(ngModel)]="item.code" name="item.code">
+                            <option value="BDT">BDT</option>
+                            <option value="USD">USD</option>
+                        </select> 
                     </div>
                 </div>
                 <div class="row form-group">

@@ -139,6 +139,35 @@ export class BookingDetailComponent implements OnInit {
     alert("Successful Action");  
     })
   }
+  getFinalPrice(code)
+  {
+     let data=code.split("#QQQ#");
+     let price={
+       amount:"",
+       date:""
+     }
+     for(let c=0;c<data.length;c++)
+     {
+         let item=data[c].split(":");
+         if(item[0]=='finalPrice')
+         {
+           price.amount=item[1].split("#QQ#")[0];
+           price.date=item[1].split("#QQ#")[1];
+         }  
+     }
+  }
+  getFinalCurrency(code)
+  {
+    let data=code.split("#QQQ#");
+     for(let c=0;c<data.length;c++)
+     {
+         let item=data[c].split(":");
+         if(item[0]=='currency')
+         {
+           return item[1];
+         }  
+     }
+  }
   public captureScreen()  
   {  
     

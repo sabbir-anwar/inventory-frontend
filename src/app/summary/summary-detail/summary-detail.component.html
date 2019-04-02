@@ -46,15 +46,19 @@
               </tr>
               <tr>
                 <td>Estimated Price Per Unit</td>
-                <td>{{details.priceperunit}}</td>
+                <td>{{details.priceperunit}} <span *ngIf="currency">{{currency}}</span></td>
               </tr>
-              <tr>
+              <tr *ngIf="price">
                 <td>Final Price</td>
-                <td></td>
+                <td>{{price.amount}} <span *ngIf="currency">{{currency}}</span></td>
               </tr>
               <tr>
                 <td>Estimated In-House Date</td>
                 <td>{{details.date}}</td>
+              </tr>
+              <tr *ngIf="price">
+                <td>In-House Date</td>
+                <td>{{price.date}}</td>
               </tr>
               <tr>
                 <td>Description</td>
@@ -64,17 +68,17 @@
       </div>
     </div>
   </div>
-  <div class="row m-l-5 m-r-5 m-t-20 m-b-10 border-all" *ngIf="!details.final_price">
+  <div class="row m-l-5 m-r-5 m-t-20 m-b-10 border-all">
     <form action="">
       <h3>Update Summary</h3>
       <div class="row">
         <div class="col-md-6 form-group">
             <label for="cc-payment" class="control-label mb-1">Final Price</label>
-            <input class="form-control" type="number" [(ngModel)]="details.final_price" name="details.final_price">
+            <input class="form-control" type="number" [(ngModel)]="final_price" name="final_price">
           </div>
           <div class="col-md-6 form-group">
             <label for="cc-payment" class="control-label mb-1">In-Housed Date</label>
-            <input class="form-control" type="date" [(ngModel)]="details.inhoused_date" name="details.inhoused_date">
+            <input class="form-control" type="date" [(ngModel)]="inhoused_date" name="inhoused_date">
           </div>
       </div>
       <button  class="btn btn-success" (click)="submitUpdate()">Submit</button>

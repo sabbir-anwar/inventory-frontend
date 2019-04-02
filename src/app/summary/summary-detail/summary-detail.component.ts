@@ -33,6 +33,8 @@ export class SummaryDetailComponent implements OnInit {
   details:any;
   status:any;
   selectedstatus:any;
+  inhoused_date:any;
+  final_price:any;
   
   constructor(private http:HttpClient,private route:ActivatedRoute, private router:Router) {
     this.show = false;
@@ -87,6 +89,10 @@ export class SummaryDetailComponent implements OnInit {
     this.http.get(this.url,{headers:header}).subscribe((response)=>{
     console.log(response);
     this.details = response;
+    if(this.details.code){
+      console.log(this.getFinalPrice(this.details.code));
+      this.currency = this.getFinalCurrency(this.details.code);
+    }
     console.log("Details-----"+this.details);
     this.itemName=this.details.item.name
     this.colorCode = this.details.item.color_code
@@ -133,6 +139,53 @@ export class SummaryDetailComponent implements OnInit {
     },(err)=>{
     console.log(err);  
     })
+  }
+  submitUpdate(){
+    let token=localStorage.getItem("token");
+    let headers= new HttpHeaders().append("Authorization","Bearer "+token);
+
+    this.http.get(getHost()+"/api/booking/update/final/price/"+this.booking_id+"/"+this.final_price+"/"+this.inhoused_date,{headers}).subscribe((res)=>{
+      
+      console.log(res);
+    },(err)=>{
+    console.log(err);  
+    })
+  }
+  price=null;
+  currency=null;
+  getFinalPrice(code)
+  {
+     let data=code.split("#QQQ#");
+     let price={
+       amount:"",
+       date:""
+     }
+     console.log(data);
+     for(let c=0;c<data.length;c++)
+     {
+         let item=data[c].split(":");
+         console.log(item);
+         if(item[0]=='finalPrice')
+         {
+           price.amount=item[1].split("#QQ#")[0];
+           price.date=item[1].split("#QQ#")[1];
+           this.price=price;
+           return price;
+         } 
+
+     }
+  }
+  getFinalCurrency(code)
+  {
+    let data=code.split("#QQQ#");
+     for(let c=0;c<data.length;c++)
+     {
+         let item=data[c].split(":");
+         if(item[0]=='currency')
+         {
+           return item[1];
+         }  
+     }
   }
 
 }
