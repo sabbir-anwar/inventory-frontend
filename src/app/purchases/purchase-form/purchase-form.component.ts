@@ -27,7 +27,8 @@ export class PurchaseFormComponent implements OnInit {
     quantity:"",
     item_id:"",
     price_per_unit:"",
-    discount:""
+    discount:"",
+    code:""
   }
   constructor(private http:HttpClient,private router:Router) {
     let token=localStorage.getItem("token");
@@ -96,7 +97,8 @@ export class PurchaseFormComponent implements OnInit {
       quantity:"",
       item_id:"",
       price_per_unit:"",
-      discount:""
+      discount:"",
+      code:""
     }
     let token=localStorage.getItem("token");
     let headers= new HttpHeaders().append("Authorization","Bearer "+token);

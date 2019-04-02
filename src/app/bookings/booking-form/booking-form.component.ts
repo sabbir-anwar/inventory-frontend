@@ -24,7 +24,8 @@ export class BookingFormComponent implements OnInit {
     priceperunit:"",
     date:"",
     description:"",
-    extra:""
+    extra:"",
+    code:""
   }
   constructor(private http:HttpClient,private router:Router) {
     let token=localStorage.getItem("token");
@@ -88,7 +89,8 @@ export class BookingFormComponent implements OnInit {
     priceperunit:"",
     date:"",
     description:"",
-    extra:""
+    extra:"",
+    code:""
     }
     let token=localStorage.getItem("token");
     let headers= new HttpHeaders().append("Authorization","Bearer "+token);
