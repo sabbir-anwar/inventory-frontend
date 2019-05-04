@@ -84,6 +84,15 @@ export class ProjectsDetailComponent implements OnInit {
      this.show=true;
   }
   
+  addNew()
+  {
+
+  }
+  TriggerEvent($event) {
+   
+    console.log("triggered here");
+   
+  }
   //animation related methods amd properties
    get stateName(){
     return this.show ? 'show' : 'hide'  
