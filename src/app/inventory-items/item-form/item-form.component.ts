@@ -13,12 +13,14 @@ export class ItemFormComponent implements OnInit {
    @Output() messageEvent=new EventEmitter<boolean>();
   categories=null;
   showloading=false;
+  itemid=null;
   item={
     name:"",
+    id:"",
     description:"",
     color_code:"",
-   category_id:""
-
+    category_id:"",
+    files:""
   }
 
  constructor(private http:HttpClient,private router:Router) { 
@@ -48,7 +50,7 @@ export class ItemFormComponent implements OnInit {
   submit(){
     this.lock = true;
     this.showloading=true;
-    if(this.item.name.length == 0||this.item.color_code.length == 0|| this.item.description.length==0) {
+    if(this.item.name.length == 0||this.item.color_code.length == 0) {
       return;
     }
 
@@ -67,6 +69,7 @@ export class ItemFormComponent implements OnInit {
          this.init();  
       }
     });
+    this.onUpload();
   }
   
    sendMessageToParent(message:any)  {
@@ -76,13 +79,23 @@ export class ItemFormComponent implements OnInit {
   {
     this.sendMessageToParent(false);
   }
+  onUpload(){
+    const fd = new FormData();
+    fd.append('image', this.item.id, this.item.files);
+    let token=localStorage.getItem("token");
+    let headers= new HttpHeaders().append("Authorization","Bearer "+token);
+    this.http.post(getHost()+"/api/file/upload",fd,{headers}).subscribe((res)=>{
+      console.log(res);
+    });
+  }
   init(){
     this.item={
       name:"",
+      id:"",
       description:"",
       color_code:"",
-      category_id:""
-  
+      category_id:"",
+      files:""
     }
    let token=localStorage.getItem("token");
    let headers= new HttpHeaders().append("Authorization","Bearer "+token);
@@ -94,6 +107,7 @@ export class ItemFormComponent implements OnInit {
    },(err)=>{
     console.log(err);  
    })
+
   }
 
 }
