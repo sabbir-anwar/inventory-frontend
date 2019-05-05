@@ -85,12 +85,14 @@ export class ItemFormComponent implements OnInit {
   }
   onUpload(itemid){
     const fd = new FormData();
+    fd.append("itemid",itemid);
+    fd.append("files",this.files[0]);
+    console.log(fd);
     console.log("onUpload file::"+this.files);
     let token=localStorage.getItem("token");
     let headers= new HttpHeaders().append("Authorization","Bearer "+token);
-    this.http.post(getHost()+"/api/file/upload",{headers}).subscribe((res)=>{
+    this.http.post(getHost()+"/api/file/upload",fd,{headers}).subscribe((res)=>{
       console.log("upload part here::"+res);
-      fd.append(itemid, this.files);
       console.log(fd);
     });
   }
