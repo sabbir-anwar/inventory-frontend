@@ -46,13 +46,21 @@ export class ItemFormComponent implements OnInit {
     this.init();
 
   }
+  file;
   lock = false;  
+   onFileChange(event) {
+    if(event.target.files.length > 0) {
+      this.file = event.target.files[0];
+      console.log("File is ::::"+this.file)
+    }
+  }
   submit(){
     this.lock = true;
     this.showloading=true;
     if(this.item.name.length == 0||this.item.color_code.length == 0) {
       return;
     }
+    
 
      
     let token=localStorage.getItem("token");
@@ -60,11 +68,9 @@ export class ItemFormComponent implements OnInit {
     this.http.post(getHost()+"/api/items",this.item,{headers}).subscribe((res)=>{
       this.showloading=false;
       this.sendMessageToParent(this);
-      this.init();
-      console.log("After the Init:::"+res); 
-      console.log("item id:::"+res);
+      //this.init();
+      console.log("Item id is : "+res);
       this.itemid = res;
-      console.log("Files item:::"+this.files);
       this.onUpload(this.itemid);
     },(error)=>{
       this.showloading=false;
@@ -84,16 +90,15 @@ export class ItemFormComponent implements OnInit {
     this.sendMessageToParent(false);
   }
   onUpload(itemid){
+    console.log("I am here inside onUpload");
     const fd = new FormData();
     fd.append("itemid",itemid);
-    fd.append("files",this.files[0]);
-    console.log(fd);
-    console.log("onUpload file::"+this.files);
+    fd.append("files",this.file);
+    console.log(this.file);
     let token=localStorage.getItem("token");
     let headers= new HttpHeaders().append("Authorization","Bearer "+token);
-    this.http.post(getHost()+"/api/file/upload",fd,{headers}).subscribe((res)=>{
-      console.log("upload part here::"+res);
-      console.log(fd);
+    this.http.post(getHost()+"/api/file/upload/",fd,{headers}).subscribe((res)=>{
+      this.init();
     });
   }
   init(){
