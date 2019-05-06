@@ -13,12 +13,14 @@ export class ItemFormComponent implements OnInit {
    @Output() messageEvent=new EventEmitter<boolean>();
   categories=null;
   showloading=false;
+  itemid=null;
+  files=null;
   item={
     name:"",
+    id:"",
     description:"",
     color_code:"",
-   category_id:""
-
+    category_id:""
   }
 
  constructor(private http:HttpClient,private router:Router) { 
@@ -48,17 +50,22 @@ export class ItemFormComponent implements OnInit {
   submit(){
     this.lock = true;
     this.showloading=true;
-    if(this.item.name.length == 0||this.item.color_code.length == 0|| this.item.description.length==0) {
+    if(this.item.name.length == 0||this.item.color_code.length == 0) {
       return;
     }
 
-    console.log(this.item);  
+     
     let token=localStorage.getItem("token");
     let headers= new HttpHeaders().append("Authorization","Bearer "+token);
     this.http.post(getHost()+"/api/items",this.item,{headers}).subscribe((res)=>{
       this.showloading=false;
       this.sendMessageToParent(this);
       this.init();
+      console.log("After the Init:::"+res); 
+      console.log("item id:::"+res);
+      this.itemid = res;
+      console.log("Files item:::"+this.files);
+      this.onUpload(this.itemid);
     },(error)=>{
       this.showloading=false;
       if(error.status ==201)
@@ -76,13 +83,26 @@ export class ItemFormComponent implements OnInit {
   {
     this.sendMessageToParent(false);
   }
+  onUpload(itemid){
+    const fd = new FormData();
+    fd.append("itemid",itemid);
+    fd.append("files",this.files[0]);
+    console.log(fd);
+    console.log("onUpload file::"+this.files);
+    let token=localStorage.getItem("token");
+    let headers= new HttpHeaders().append("Authorization","Bearer "+token);
+    this.http.post(getHost()+"/api/file/upload",fd,{headers}).subscribe((res)=>{
+      console.log("upload part here::"+res);
+      console.log(fd);
+    });
+  }
   init(){
     this.item={
       name:"",
+      id:"",
       description:"",
       color_code:"",
       category_id:""
-  
     }
    let token=localStorage.getItem("token");
    let headers= new HttpHeaders().append("Authorization","Bearer "+token);
@@ -90,10 +110,12 @@ export class ItemFormComponent implements OnInit {
       this.categories=res;
       console.log(this.categories);  
       //  this.sendMessageToParent(true);
-      
+      console.log("item id init:::"+this.item.id);
+      // this.onUpload(this.item.id);
    },(err)=>{
     console.log(err);  
    })
+
   }
 
 }
