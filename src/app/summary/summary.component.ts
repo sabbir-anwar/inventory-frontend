@@ -34,9 +34,13 @@ export class SummaryComponent implements OnInit {
   styles=null;
   status=null;
   selectedStyle="";
+  showApproveDeclineButton=false;
   constructor(private http:HttpClient,private router:Router) {
 
     let token=localStorage.getItem("token");
+    if(localStorage.getItem("role")=="managing_director" || localStorage.getItem("role")=="account_manager"){
+      this.showApproveDeclineButton = true;
+    }
     let header= new HttpHeaders().append("Authorization","Bearer "+token);
     this.http.get(getHost()+"/hello",{headers:header}).subscribe((res)=>{
         console.log(res);

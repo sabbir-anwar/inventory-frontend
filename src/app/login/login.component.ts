@@ -25,6 +25,7 @@ export class LoginComponent implements OnInit {
       console.log(data);
       let d:any=data;
       localStorage.setItem("token",d.accessToken);
+      localStorage.setItem("role",d.authorities[0].authority);
       this.message=""
       this.router.navigate(["summary"]);
       

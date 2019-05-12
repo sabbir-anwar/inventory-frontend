@@ -48,9 +48,9 @@
               </tbody>
           </table>
       </div>
-      <div class="row">
-          <div class="col-md-6">
-              <div class="row m-t-15">
+      <div class="row" >
+          <div class="col-md-6" >
+              <div class="row m-t-15" *ngIf="showApproveDeclineButton">
                   <div class="col-md-2">
                     <button class="btn btn-success btn-blocks" (click)="submitApprove()">Approved</button>
                   </div>

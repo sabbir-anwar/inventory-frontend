@@ -55,12 +55,14 @@ export class BookingDetailComponent implements OnInit {
   itemName="";
   colorCode="all";
   availibility_info=null;
+  production_info=null;
   total_available=0;
+  total_inhouse=0;
   loadItemAvailibilityStatus()
   {
      let token=localStorage.getItem("token");
      let header= new HttpHeaders().append("Authorization","Bearer "+token);
-     console.log(getHost()+"/api/stores/getby/store/all/"+this.itemName+"/"+this.colorCode);
+     
      this.http.get(getHost()+"/api/stores/getby/store/all/"+this.itemName+"/"+this.colorCode,{headers:header}).subscribe((res)=>{
          console.log("data is ada");
          console.log(res) 
@@ -71,6 +73,16 @@ export class BookingDetailComponent implements OnInit {
 
         } 
       });
+      this.http.get(getHost()+"/api/stores/getby/production/all/"+this.itemName+"/"+this.colorCode,{headers:header}).subscribe((res)=>{
+        console.log("data is ada");
+        console.log(res) 
+        this.production_info = <any>res;
+        for(var c=0;c<this.production_info.length;c++)
+        {
+           this.total_inhouse=this.total_inhouse+this.production_info[c].quantity
+        } 
+        this.total_inhouse = this.total_inhouse+this.total_available;
+     });
   }
  
   url ="";
