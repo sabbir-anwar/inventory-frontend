@@ -36,9 +36,13 @@ export class StoreComponent implements OnInit {
   selectedStage="all";
   selectedItem="all";
   selectedLocation="all";
+  showInventoryButton=false;
   constructor(private http:HttpClient,private router:Router) {
 
     let token=localStorage.getItem("token");
+    if(localStorage.getItem("role")=="store_manager"){
+      this.showInventoryButton = true;
+    }
    let header= new HttpHeaders().append("Authorization","Bearer "+token);
    this.http.get(getHost()+"/hello",{headers:header}).subscribe((res)=>{
       console.log(res);

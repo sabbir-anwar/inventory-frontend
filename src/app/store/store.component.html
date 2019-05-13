@@ -40,7 +40,7 @@
        
       </div>
       <!--filter ends here--> 
-      <div class = "col-md-3"> 
+      <div class = "col-md-3" *ngIf="showInventoryButton"> 
             <button class="btn btn-primary right-float" (click)="addNew()"><i class="fas fa-plus"></i>Add Inventory</button>
       </div>
     <div class="col-md-12">
