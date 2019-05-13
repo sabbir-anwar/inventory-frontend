@@ -31,7 +31,7 @@ export class BookingsComponent implements OnInit {
   show = false;
   styles=null;
   selectedStyle="";
-
+  showBookingButton=false;
   getFinalPrice(code)
   {
      let data=code.split("#QQQ#");
@@ -70,6 +70,9 @@ export class BookingsComponent implements OnInit {
   constructor(private http:HttpClient,private router:Router) {
 
     let token=localStorage.getItem("token");
+    if(localStorage.getItem("role")=="merchandiser"){
+      this.showBookingButton = true;
+    }
    let header= new HttpHeaders().append("Authorization","Bearer "+token);
    this.http.get(getHost()+"/hello",{headers:header}).subscribe((res)=>{
       console.log(res);
